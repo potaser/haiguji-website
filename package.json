@@ -1,0 +1,6 @@
+﻿{
+  "scripts": {
+    "start": "node server.js",
+    "check:contacts": "node scripts/check-contact-messages.js"
+  }
+}

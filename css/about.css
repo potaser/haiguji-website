@@ -1,0 +1,344 @@
+﻿/* 鍏充簬鎴戜滑椤甸潰鐗规畩鏍峰紡 */
+.about-container {
+    grid-template-columns: 250px 1fr;
+}
+
+.about-section {
+    margin-bottom: 60px;
+    display: none;
+}
+
+.about-section.active-section {
+    display: block;
+}
+
+.about-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--primary-blue);
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 15px;
+}
+
+.about-section h3 {
+    font-size: 1.2rem;
+    margin: 25px 0 15px 0;
+    color: var(--primary-purple);
+}
+
+/* 鍏徃浠嬬粛 */
+.company-intro {
+    background: var(--light-bg);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.company-intro p {
+    color: var(--light-text);
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* 鍏徃浜偣 */
+.company-highlights {
+    margin-bottom: 30px;
+}
+
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.highlight-item {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(106, 44, 145, 0.1) 100%);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.highlight-item h4 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+.highlight-item p {
+    color: var(--light-text);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* 鍥㈤槦淇℃伅 */
+.team-section {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    border-top: 4px solid var(--primary-purple);
+}
+
+.team-info {
+    margin-top: 15px;
+}
+
+.team-info p {
+    margin-bottom: 10px;
+    color: var(--light-text);
+    line-height: 1.8;
+}
+
+/* 鑱旂郴琛ㄥ崟 */
+.contact-form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.info-block {
+    background: var(--light-bg);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-purple);
+}
+
+.info-block h4 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+.info-block p {
+    color: var(--light-text);
+    margin: 0;
+}
+
+/* 鑱旂郴琛ㄥ崟 */
+.contact-form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form h3 {
+    margin-top: 0;
+    color: var(--primary-blue);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--dark-text);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 0 3px rgba(106, 44, 145, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* 鏃堕棿绾?*/
+.news-timeline {
+    position: relative;
+    padding-left: 40px;
+}
+
+.news-timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary-purple), var(--accent-color));
+}
+
+.timeline-item {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -40px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--primary-purple);
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--primary-purple);
+}
+
+.timeline-date {
+    color: var(--primary-purple);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.timeline-content h4 {
+    color: var(--primary-blue);
+    margin: 0 0 10px 0;
+    font-size: 1.05rem;
+}
+
+.timeline-content p {
+    color: var(--light-text);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* 闅愮鏀跨瓥鍐呭 */
+.privacy-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    line-height: 1.8;
+}
+
+.privacy-content h3 {
+    margin: 25px 0 15px 0;
+    color: var(--primary-blue);
+    font-size: 1.05rem;
+}
+
+.privacy-content p {
+    color: var(--light-text);
+    margin-bottom: 15px;
+}
+
+/* 鍝嶅簲寮?*/
+@media (max-width: 768px) {
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .highlight-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .news-timeline {
+        padding-left: 25px;
+    }
+
+    .timeline-item::before {
+        left: -35px;
+    }
+
+    .news-timeline::before {
+        left: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form-container {
+        gap: 20px;
+    }
+
+    .info-block {
+        padding: 15px;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 8px;
+        font-size: 16px; /* 闃叉鍦╥OS涓婅嚜鍔ㄦ斁澶?*/
+    }
+
+    .privacy-content {
+        padding: 20px;
+    }
+}
+
+.phone-row {
+    display: grid;
+    grid-template-columns: minmax(130px, 0.42fr) 1fr;
+    gap: 10px;
+}
+
+.phone-row select,
+.phone-row input {
+    width: 100%;
+}
+
+.form-hint {
+    color: #6b7280;
+    font-size: 0.88rem;
+    margin-top: 6px;
+}
+
+.form-error {
+    color: #b91c1c;
+    font-size: 0.9rem;
+    margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+    .phone-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+#custom-country-code,
+#custom-inquiry-type {
+    width: 100%;
+}
+
+.phone-row #custom-country-code {
+    grid-column: 1 / 2;
+}
+
+.phone-row #phone {
+    grid-column: 2 / 3;
+}
+
+@media (max-width: 640px) {
+    .phone-row #custom-country-code,
+    .phone-row #phone {
+        grid-column: auto;
+    }
+}

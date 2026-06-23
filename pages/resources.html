@@ -1,0 +1,473 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资源中心 - 海古纪生物科技</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/resources.css">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="../公司资料/公司简介/海古纪logo.png" alt="海古纪 Logo" class="logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">首页</a></li>
+                <li class="nav-item dropdown">
+                    <a href="products.html" class="nav-link">产品 <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="products.html#ai-scientist">AI生信科学家</a>
+                        <a href="products.html#hsmaster">HSmaster植物基因分型系统</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="services.html" class="nav-link">服务 <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="services.html#hyper-seq">Hyper-seq测序</a>
+                        <div class="submenu-trigger">
+                            <a href="services.html#wgs">全基因组重测序</a>
+                        </div>
+                        <a href="services.html#process-dev">实验流程开发与技术支持</a>
+                        <a href="services.html#ai-agri">AI农业领域定制</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="applications.html" class="nav-link">应用领域 <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="applications.html#breeding">种业研究</a>
+                        <a href="applications.html#microbe">微生物研究</a>
+                        <a href="applications.html#animal-plant">动植物研究</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="advantages.html" class="nav-link">综合优势 <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="advantages.html#sequencing">测序平台</a>
+                        <a href="advantages.html#mass-spec">质谱平台</a>
+                        <a href="advantages.html#synthesis">合成平台</a>
+                        <a href="advantages.html#analysis">分析平台</a>
+                        <a href="advantages.html#lab">核心实验室</a>
+                        <a href="advantages.html#css">客户服务系统</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="resources.html" class="nav-link">资源中心 <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="resources.html#case">精选案例</a>
+                        <a href="resources.html#news">资讯动态</a>
+                        <a href="resources.html#video">视频中心</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="about.html" class="nav-link">关于我们 <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="about.html#haiguji">海古纪</a>
+                        <a href="about.html#contact">联系我们</a>
+                        <a href="about.html#news">最新动态</a>
+                        <a href="about.html#privacy">隐私协议</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="nav-right">
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-icon" title="公众号">☷</a>
+                    <div class="dropdown-menu">
+                        <div class="qrcode-container">
+                            <p>公众号二维码</p>
+                            <div class="qrcode qr-empty">二维码</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="customer-service.html" class="customer-service-link" title="客户服务系统">CSS</a>
+                <a href="about.html#contact" class="btn-contact">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 顶部大图 -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>资源中心</h1>
+            <p>学术成果、案例精选、视频教程</p>
+        </div>
+    </section>
+
+    <!-- 资源中心内容 -->
+    <div class="resources-wrapper">
+        <!-- 左侧筛选 -->
+        <aside class="resource-sidebar">
+            <div class="filter-section">
+                <h3>检索与筛选</h3>
+
+                <div class="filter-group">
+                    <label>关键词检索</label>
+                    <input id="keyword-filter" type="search" placeholder="输入物种、技术、期刊或关键词">
+                </div>
+
+                <div class="filter-group">
+                    <label>研究领域</label>
+                    <select id="field-filter">
+                        <option value="">全部领域</option>
+                        <option value="breeding">种业研究</option>
+                        <option value="microbe">微生物</option>
+                        <option value="plant">植物</option>
+                        <option value="animal">动物</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>产品类别</label>
+                    <select id="product-filter">
+                        <option value="">全部产品</option>
+                        <option value="hyper-seq">Hyper-seq</option>
+                        <option value="wgs">全基因组测序</option>
+                        <option value="ai">AI生信</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>年份</label>
+                    <select id="year-filter">
+                        <option value="">全部年份</option>
+                        <option value="2026">2026</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>影响因子</label>
+                    <select id="impact-filter">
+                        <option value="">全部</option>
+                        <option value="high">IF > 10</option>
+                        <option value="mid">5 < IF ≤ 10</option>
+                        <option value="low">IF ≤ 5</option>
+                    </select>
+                </div>
+
+                <button class="btn-search">开始检索</button>
+                <button class="reset-link" type="button">重置筛选</button>
+            </div>
+        </aside>
+
+        <!-- 主要内容 -->
+        <main class="resource-content">
+            <div class="resource-tabs" role="tablist" aria-label="资源中心分类">
+                <button class="resource-tab active" type="button" data-tab="case">精选案例</button>
+                <button class="resource-tab" type="button" data-tab="news">资讯动态</button>
+                <button class="resource-tab" type="button" data-tab="video">视频中心</button>
+            </div>
+
+            <section id="case" class="resource-section active-section" data-tab-panel="case">
+                <h2>精选案例</h2>
+                <div class="resource-grid">
+                    <article class="resource-card" data-type="case" data-field="plant" data-product="hyper-seq"
+                        data-year="2022" data-impact="high"
+                        data-keywords="Hyper-seq The Innovation marker-assisted selection genotyping 方法学 核心技术">
+                        <img class="resource-card-thumb"
+                            src="../公司资料/产品/HSmaster/图片/A novel,effective,and flexible marker-assisted selection and genotyping approach.png"
+                            alt="Hyper-seq方法学论文">
+                        <div class="card-header">
+                            <h4>Hyper-seq：新型灵活的标记辅助选择与基因分型方法</h4><span class="year-badge">2022</span>
+                        </div>
+                        <div class="card-meta"><span class="journal">The Innovation</span><span
+                                class="if-badge">IF=32.1</span></div>
+                        <p class="card-desc">Hyper-seq 核心方法学论文，系统定义技术原理、建库策略与在分子育种中的应用潜力。</p>
+                        <div class="card-tags"><span class="tag">Hyper-seq</span><span class="tag">方法学</span><span
+                                class="tag">基因分型</span></div>
+                        <a href="https://www.cell.com/the-innovation/fulltext/S2666-6758(22)00050-9" target="_blank"
+                            rel="noopener" class="card-link">查看论文 →</a>
+                    </article>
+
+                    <article class="resource-card" data-type="case" data-field="plant" data-product="hyper-seq"
+                        data-year="2025" data-impact="high"
+                        data-keywords="木薯 Cassava pan-genome haplotype Molecular Plant Hyper-seq 泛基因组 单倍型图谱">
+                        <img class="resource-card-thumb" src="../公司资料/产品/HSmaster/图片/hyper-seq.png" alt="木薯泛基因组研究">
+                        <div class="card-header">
+                            <h4>木薯泛基因组与单倍型图谱</h4><span class="year-badge">2025</span>
+                        </div>
+                        <div class="card-meta"><span class="journal">Molecular Plant</span><span
+                                class="if-badge">IF=24</span></div>
+                        <p class="card-desc">利用 Hyper-seq 等技术构建木薯泛基因组和单倍型图谱，解析栽培种及野生祖先的适应性进化。</p>
+                        <div class="card-tags"><span class="tag">泛基因组</span><span class="tag">木薯</span><span
+                                class="tag">Hyper-seq</span></div>
+                        <a href="https://europepmc.org/article/ppr/ppr685388" target="_blank" rel="noopener"
+                            class="card-link">查看论文 →</a>
+                    </article>
+
+                    <article class="resource-card" data-type="case" data-field="plant" data-product="hyper-seq"
+                        data-year="2022" data-impact="high"
+                        data-keywords="马铃薯 potato autotetraploid genome Plant Biotechnology Journal Hyper-seq 高杂合 同源四倍体">
+                        <img class="resource-card-thumb"
+                            src="../公司资料/产品/HSmaster/图片/Methodology and application of Hyper-seq technology (Hyper-seq-G, Hyper-seq-FD, and Hyper-seq-INC).png"
+                            alt="马铃薯同源四倍体基因组">
+                        <div class="card-header">
+                            <h4>马铃薯同源四倍体基因组解析</h4><span class="year-badge">2022</span>
+                        </div>
+                        <div class="card-meta"><span class="journal">Plant Biotechnology Journal</span><span
+                                class="if-badge">IF=13.263</span></div>
+                        <p class="card-desc">应用 Hyper-seq 技术解析高杂合同源四倍体马铃薯基因组，为复杂倍性作物研究提供重要参考。</p>
+                        <div class="card-tags"><span class="tag">马铃薯</span><span class="tag">四倍体</span><span
+                                class="tag">基因组</span></div>
+                        <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/pbi.13883" target="_blank"
+                            rel="noopener" class="card-link">查看论文 →</a>
+                    </article>
+
+                    <article class="resource-card" data-type="case" data-field="plant" data-product="hyper-seq"
+                        data-year="2022" data-impact="mid"
+                        data-keywords="象草 Elephant Grass chromosome-scale genome Molecular Ecology Resources Hyper-seq 异源四倍体 生物量">
+                        <img class="resource-card-thumb" src="../公司资料/产品/HSmaster/图片/引进动植物样本.png" alt="象草基因组研究">
+                        <div class="card-header">
+                            <h4>象草染色体水平基因组与生物量积累研究</h4><span class="year-badge">2022</span>
+                        </div>
+                        <div class="card-meta"><span class="journal">Molecular Ecology Resources</span><span
+                                class="if-badge">IF=8.678</span></div>
+                        <p class="card-desc">构建象草染色体水平基因组，探索异源四倍体物种形成及高生物量积累机制。</p>
+                        <div class="card-tags"><span class="tag">象草</span><span class="tag">基因组组装</span><span
+                                class="tag">Hyper-seq</span></div>
+                        <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/1755-0998.13612" target="_blank"
+                            rel="noopener" class="card-link">查看论文 →</a>
+                    </article>
+
+                    <article class="resource-card" data-type="case" data-field="plant" data-product="hyper-seq"
+                        data-year="2021" data-impact="mid"
+                        data-keywords="茶树 Tea GWAS flavor metabolites Horticulture Research Hyper-seq 风味代谢物 分子标记">
+                        <img class="resource-card-thumb" src="../公司资料/产品/HSmaster/图片/生信分析流程.png" alt="茶树风味代谢物GWAS">
+                        <div class="card-header">
+                            <h4>茶树风味代谢物相关分子标记 GWAS</h4><span class="year-badge">2021</span>
+                        </div>
+                        <div class="card-meta"><span class="journal">Horticulture Research</span><span
+                                class="if-badge">IF=7.291</span></div>
+                        <p class="card-desc">基于 Hyper-seq 开展基因分型和全基因组关联分析，定位茶叶风味相关代谢物分子标记。</p>
+                        <div class="card-tags"><span class="tag">茶树</span><span class="tag">GWAS</span><span
+                                class="tag">风味代谢</span></div>
+                        <a href="https://academic.oup.com/hr/article/doi/10.1038/s41438-021-00477-3/6446588?guestAccessKey="
+                            target="_blank" rel="noopener" class="card-link">查看论文 →</a>
+                    </article>
+
+                    <article class="resource-card" data-type="case" data-field="plant" data-product="wgs"
+                        data-year="2025" data-impact="mid"
+                        data-keywords="甘草 Glycyrrhiza comparative genomics Plant Journal bioactive compounds 比较基因组 活性成分">
+                        <img class="resource-card-thumb" src="../公司资料/产品/HSmaster/图片/训练群体和预测群体的选择.png" alt="甘草比较基因组研究">
+                        <div class="card-header">
+                            <h4>三种甘草属植物比较基因组研究</h4><span class="year-badge">2025</span>
+                        </div>
+                        <div class="card-meta"><span class="journal">The Plant Journal</span><span
+                                class="if-badge">IF=7.2</span></div>
+                        <p class="card-desc">比较三种药用甘草属植物基因组，揭示重要活性成分生产相关候选基因。</p>
+                        <div class="card-tags"><span class="tag">比较基因组</span><span class="tag">甘草</span><span
+                                class="tag">候选基因</span></div>
+                        <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/tpj.70223" target="_blank"
+                            rel="noopener" class="card-link">查看论文 →</a>
+                    </article>
+
+                    <article class="resource-card" data-type="case" data-field="plant" data-product="wgs"
+                        data-year="2024" data-impact="high"
+                        data-keywords="白兰 Michelia alba haplotype genome Molecular Horticulture methylation flower characteristics 单倍型基因组 甲基化 花性状">
+                        <img class="resource-card-thumb" src="../公司资料/产品/HSmaster/图片/育种发展流程-从人工选择到智能育种.png"
+                            alt="白兰单倍型基因组研究">
+                        <div class="card-header">
+                            <h4>白兰高质量单倍型基因组研究</h4><span class="year-badge">2024</span>
+                        </div>
+                        <div class="card-meta"><span class="journal">Molecular Horticulture</span><span
+                                class="if-badge">IF=10.6</span></div>
+                        <p class="card-desc">构建 Michelia alba 高质量单倍型基因组，揭示甲基化模式与花性状差异。</p>
+                        <div class="card-tags"><span class="tag">单倍型基因组</span><span class="tag">白兰</span><span
+                                class="tag">表观调控</span></div>
+                        <a href="https://link.springer.com/article/10.1186/s43897-024-00098-z" target="_blank"
+                            rel="noopener" class="card-link">查看论文 →</a>
+                    </article>
+
+                    <article class="resource-card" data-type="case" data-field="plant" data-product="wgs"
+                        data-year="2021" data-impact="mid"
+                        data-keywords="百香果 passion fruit chromosome-scale genome Horticulture Research evolution flavor synthesis 基因组 风味合成">
+                        <img class="resource-card-thumb" src="../公司资料/产品/HSmaster/图片/鉴定溯源.png" alt="百香果基因组研究">
+                        <div class="card-header">
+                            <h4>百香果染色体水平基因组与风味合成研究</h4><span class="year-badge">2021</span>
+                        </div>
+                        <div class="card-meta"><span class="journal">Horticulture Research</span><span
+                                class="if-badge">IF=7.291</span></div>
+                        <p class="card-desc">构建百香果染色体水平基因组，解析物种进化与风味合成相关机制。</p>
+                        <div class="card-tags"><span class="tag">百香果</span><span class="tag">基因组</span><span
+                                class="tag">风味合成</span></div>
+                        <a href="https://www.maxapress.com/article/doi/10.48130/tp-0024-0021?viewType=HTML"
+                            target="_blank" rel="noopener" class="card-link">查看论文 →</a>
+                    </article>
+                </div>
+            </section>
+
+            <section id="news" class="resource-section" data-tab-panel="news">
+                <h2>资讯动态</h2>
+                <div class="resource-grid">
+                    <article class="resource-card" data-type="news" data-field="plant" data-product="hyper-seq"
+                        data-year="2025" data-impact="high"
+                        data-keywords="Hyper-seq 智能自动化 水稻 大豆 基因组选择 全基因组数据采集 瀚辰光翼 海南大学">
+                        <img class="resource-card-thumb" src="../公司资料/资讯/2025-2-12/自动化设备.jpg" alt="Hyper-seq智能自动化资讯">
+                        <div class="card-header">
+                            <h4>Hyper-seq 技术实现低成本全基因组数据采集</h4><span class="year-badge">2025</span>
+                        </div>
+                        <p class="card-desc">智能自动化方案联合 Hyper-seq，支撑水稻与大豆基因组选择研究，提升育种数据采集效率。</p>
+                        <div class="card-tags"><span class="tag">资讯</span><span class="tag">智能自动化</span><span
+                                class="tag">基因组选择</span></div>
+                        <a href="https://mp.weixin.qq.com/s/p7izwxbE_vgt1AMg93giyg" target="_blank" rel="noopener"
+                            class="card-link">查看原文 →</a>
+                    </article>
+
+                    <article class="resource-card" data-type="news" data-field="plant" data-product="hyper-seq"
+                        data-year="2022" data-impact="high"
+                        data-keywords="Hyper-seq 方法学 The Innovation 公众号 技术原理 基因分型 标记辅助选择">
+                        <img class="resource-card-thumb"
+                            src="../公司资料/产品/HSmaster/图片/A novel,effective,and flexible marker-assisted selection and genotyping approach.png"
+                            alt="Hyper-seq方法学公众号解读">
+                        <div class="card-header">
+                            <h4>Hyper-seq 方法学论文公众号解读</h4><span class="year-badge">2022</span>
+                        </div>
+                        <p class="card-desc">围绕 Hyper-seq 的一步 PCR、低成本建库和灵活标记密度调控，解读其在标记辅助选择中的潜力。</p>
+                        <div class="card-tags"><span class="tag">公众号</span><span class="tag">方法学</span><span
+                                class="tag">Hyper-seq</span></div>
+                        <a href="https://mp.weixin.qq.com/s/wQnx3U8xaKNPT51Sb0MCbw" target="_blank" rel="noopener"
+                            class="card-link">查看推文 →</a>
+                    </article>
+
+                    <article class="resource-card" data-type="news" data-field="plant" data-product="hyper-seq"
+                        data-year="2025" data-impact="high"
+                        data-keywords="木薯 Cassava Molecular Plant 公众号 泛基因组 单倍型图谱 适应性进化">
+                        <img class="resource-card-thumb" src="../公司资料/产品/HSmaster/图片/hyper-seq.png" alt="木薯泛基因组公众号解读">
+                        <div class="card-header">
+                            <h4>木薯泛基因组与单倍型图谱研究解读</h4><span class="year-badge">2025</span>
+                        </div>
+                        <p class="card-desc">聚焦木薯栽培种及野生祖先的泛基因组资源，呈现 Hyper-seq 在大规模基因型数据构建中的应用。</p>
+                        <div class="card-tags"><span class="tag">公众号</span><span class="tag">木薯</span><span
+                                class="tag">泛基因组</span></div>
+                        <a href="https://mp.weixin.qq.com/s/FdhgQAt_u-WBudSac-AU3A" target="_blank" rel="noopener"
+                            class="card-link">查看推文 →</a>
+                    </article>
+
+                    <article class="resource-card" data-type="news" data-field="plant" data-product="hyper-seq"
+                        data-year="2022" data-impact="high"
+                        data-keywords="马铃薯 potato Plant Biotechnology Journal 公众号 高杂合 四倍体 基因组">
+                        <img class="resource-card-thumb"
+                            src="../公司资料/产品/HSmaster/图片/Methodology and application of Hyper-seq technology (Hyper-seq-G, Hyper-seq-FD, and Hyper-seq-INC).png"
+                            alt="马铃薯基因组公众号解读">
+                        <div class="card-header">
+                            <h4>马铃薯同源四倍体基因组研究解读</h4><span class="year-badge">2022</span>
+                        </div>
+                        <p class="card-desc">解读高杂合同源四倍体马铃薯基因组解析工作，以及 Hyper-seq 对复杂倍性作物研究的支撑价值。</p>
+                        <div class="card-tags"><span class="tag">公众号</span><span class="tag">马铃薯</span><span
+                                class="tag">四倍体</span></div>
+                        <a href="https://mp.weixin.qq.com/s/H_yj3oQ6Gyjty3MhxoGu0Q" target="_blank" rel="noopener"
+                            class="card-link">查看推文 →</a>
+                    </article>
+
+                    <article class="resource-card" data-type="news" data-field="plant" data-product="hyper-seq"
+                        data-year="2022" data-impact="mid"
+                        data-keywords="象草 Elephant Grass Molecular Ecology Resources 公众号 异源四倍体 生物量 基因组组装">
+                        <img class="resource-card-thumb" src="../公司资料/产品/HSmaster/图片/引进动植物样本.png" alt="象草基因组公众号解读">
+                        <div class="card-header">
+                            <h4>象草染色体水平基因组研究解读</h4><span class="year-badge">2022</span>
+                        </div>
+                        <p class="card-desc">梳理象草异源四倍体物种形成和高生物量积累研究，展示基因组技术在能源草育种中的价值。</p>
+                        <div class="card-tags"><span class="tag">公众号</span><span class="tag">象草</span><span
+                                class="tag">基因组</span></div>
+                        <a href="https://mp.weixin.qq.com/s/vVWOKw-Gq4Asi7a1GrdvIg" target="_blank" rel="noopener"
+                            class="card-link">查看推文 →</a>
+                    </article>
+                </div>
+            </section>
+
+            <section id="video" class="resource-section" data-tab-panel="video">
+                <h2>视频中心</h2>
+                <div class="resource-grid video-card-grid">
+                    <article class="resource-card video-resource-card" data-type="video" data-field="breeding"
+                        data-product="hyper-seq" data-year="2026" data-impact=""
+                        data-keywords="Hyper-seq 大数据育种 视频 基因分型 高通量">
+                        <video controls preload="metadata" poster="../公司资料/产品/HSmaster/图片/hyper-seq.png">
+                            <source src="../公司资料/服务/Hyper-seq测序/Hyper-seq助力大数据育种变革.mp4" type="video/mp4">
+                            您的浏览器暂不支持视频播放。
+                        </video>
+                        <div class="card-header">
+                            <h4>Hyper-seq 助力大数据育种变革</h4><span class="year-badge">视频</span>
+                        </div>
+                        <p class="card-desc">展示 Hyper-seq 在低成本、高通量基因分型和大数据育种中的应用价值。</p>
+                    </article>
+
+                    <article class="resource-card video-resource-card" data-type="video" data-field="breeding"
+                        data-product="hyper-seq" data-year="2026" data-impact=""
+                        data-keywords="海大南繁 海南大学 育种中心 视频 南繁 科研">
+                        <video controls preload="metadata" poster="../公司资料/资讯/2025-2-12/水稻图片.png">
+                            <source src="../公司资料/资讯/海大南繁：走向世界的育种中心.mp4" type="video/mp4">
+                            您的浏览器暂不支持视频播放。
+                        </video>
+                        <div class="card-header">
+                            <h4>海大南繁：走向世界的育种中心</h4><span class="year-badge">视频</span>
+                        </div>
+                        <p class="card-desc">呈现海南大学南繁科研与育种创新基础，呼应海古纪在南繁场景下的技术服务布局。</p>
+                    </article>
+                </div>
+            </section>
+
+            <p id="empty-result" class="empty-result">当前标签下未检索到匹配结果，请调整关键词或筛选范围。</p>
+        </main>
+    </div>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>联系信息</h3>
+                <p>三亚海古纪生物科技有限公司</p>
+                <p>谢经理：16689001917</p>
+                <p>基因文库技术：江肆肆 18605560158</p>
+                <p>育种数据服务：廖树欣 18889202989</p>
+                <p>高通量基因文库设备：杰瑞.葛 13601063401</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>关于海古纪</h3>
+                <ul>
+                    <li><a href="about.html#haiguji">公司简介</a></li>
+                    <li><a href="about.html#contact">联系我们</a></li>
+                    <li><a href="about.html#privacy">隐私协议</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>合作伙伴</h3>
+                <div class="footer-partners">
+                    <a class="partner-link" href="https://www.prcxi.com/" target="_blank"><img class="partner-logo"
+                            src="../公司资料/公司简介/中析生信logo.png" alt="苏州中析生物信息有限公司"><span>苏州中析生物信息有限公司</span></a>
+                    <a class="partner-link" href="https://www.hainanu.edu.cn/" target="_blank"><img class="partner-logo"
+                            src="../公司资料/公司简介/海南大学logo.png" alt="海南大学"><span>海南大学</span></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>关注我们</h3>
+                <div class="qr-grid">
+                    <div class="qr-slot">微信</div>
+                    <div class="qr-slot">微博</div>
+                    <div class="qr-slot">公众号</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 三亚海古纪生物科技有限公司. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script src="../js/resources.js"></script>
+</body>
+
+</html>

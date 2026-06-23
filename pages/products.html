@@ -1,0 +1,451 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品 - 海古纪生物科技</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="../公司资料/公司简介/海古纪logo.png" alt="海古纪 Logo" class="logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">首页</a></li>
+                <li class="nav-item dropdown">
+                    <a href="products.html" class="nav-link">产品 <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="products.html#ai-scientist">AI生信科学家</a>
+                        <a href="products.html#hsmaster">HSmaster植物基因分型系统</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="services.html" class="nav-link">服务 <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="services.html#hyper-seq">Hyper-seq测序</a>
+                        <div class="submenu-trigger">
+                            <a href="services.html#wgs">全基因组重测序</a>
+                        </div>
+                        <a href="services.html#process-dev">实验流程开发与技术支持</a>
+                        <a href="services.html#ai-agri">AI农业领域定制</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="applications.html" class="nav-link">应用领域 <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="applications.html#breeding">种业研究</a>
+                        <a href="applications.html#microbe">微生物研究</a>
+                        <a href="applications.html#animal-plant">动植物研究</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="advantages.html" class="nav-link">综合优势 <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="advantages.html#sequencing">测序平台</a>
+                        <a href="advantages.html#mass-spec">质谱平台</a>
+                        <a href="advantages.html#synthesis">合成平台</a>
+                        <a href="advantages.html#analysis">分析平台</a>
+                        <a href="advantages.html#lab">核心实验室</a>
+                        <a href="advantages.html#css">客户服务系统</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="resources.html" class="nav-link">资源中心 <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="resources.html#case">精选案例</a>
+                        <a href="resources.html#news">资讯动态</a>
+                        <a href="resources.html#video">视频中心</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="about.html" class="nav-link">关于我们 <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="about.html#haiguji">海古纪</a>
+                        <a href="about.html#contact">联系我们</a>
+                        <a href="about.html#news">最新动态</a>
+                        <a href="about.html#privacy">隐私协议</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="nav-right">
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-icon" title="公众号">☷</a>
+                    <div class="dropdown-menu">
+                        <div class="qrcode-container">
+                            <p>公众号二维码</p>
+                            <div class="qrcode qr-empty">二维码</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="customer-service.html" class="customer-service-link" title="客户服务系统">CSS</a>
+                <a href="about.html#contact" class="btn-contact">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 顶部大图 -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>创新产品</h1>
+            <p>为全球研究者提供先进的基因组学解决方案</p>
+        </div>
+    </section>
+
+    <!-- 产品内容 -->
+    <div class="products-container">
+        <!-- 左侧导航 -->
+        <aside class="product-sidebar">
+            <nav class="product-nav">
+                <div class="nav-section">
+                    <h3>产品类别</h3>
+                    <ul>
+                        <li><a href="#ai-scientist" class="nav-item active">AI生信科学家</a></li>
+                        <li><a href="#hsmaster" class="nav-item">HSmaster</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- 主要内容 -->
+        <main class="product-content">
+            <!-- AI生信科学家 -->
+            <section id="ai-scientist" class="product-section">
+                <div class="product-tabs">
+                    <button class="tab-btn active" onclick="switchTab(event, 'ai-intro')">产品介绍</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'ai-case')">案例解析</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'ai-result')">结果展示</button>
+                </div>
+
+                <!-- 产品介绍 -->
+                <div id="ai-intro" class="tab-content active">
+                    <h2>AI生信科学家</h2>
+                    <p class="intro-subtitle">全自动、自规划的多组学分析智能体</p>
+
+                    <div class="media-grid">
+                        <div class="media-card">
+                            <img src="../公司资料/产品/AI生信科学家/人工智能生物信息科学家.png" alt="人工智能生物信息学科学家">
+                            <h4>多组学分析智能体</h4>
+                            <p>面向基因组、转录组、重测序、表观组等多组学数据，自动规划分析路径并生成结构化结果。</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <h4>智能规划分析全流程</h4>
+                            <ul>
+                                <li>上传数据后，AI智能体自动识别项目类型</li>
+                                <li>规划并执行最优分析路径</li>
+                                <li>覆盖基因组、转录组、重测序、表观组等多组学整合分析</li>
+                                <li>支持自定义分析策略，灵活适配基础研究、育种开发等场景</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-item">
+                            <h4>智能解读与报告自动生成</h4>
+                            <ul>
+                                <li>AI驱动深度数据挖掘：变异影响、基因功能、通路网络</li>
+                                <li>自动生成出版级图表与结构化分析报告</li>
+                                <li>持续整合最新公共数据与算法</li>
+                                <li>提升解读深度和准确性</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-item">
+                            <h4>平台技术特色</h4>
+                            <ul>
+                                <li>全流程自动化：从原始数据到生物洞见，全程无人值守运行</li>
+                                <li>环境自适配：自动配置计算环境，告别手动安装与调试</li>
+                                <li>透明可重复：提供完整分析日志与可复现脚本</li>
+                                <li>模块化扩展：轻松集成用户自有工具与流程</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="workflow-section">
+                        <h4>核心业务流程</h4>
+                        <div class="workflow">
+                            <div class="workflow-step">
+                                <div class="step-number">1</div>
+                                <div class="step-name">监管层</div>
+                                <p>总控项目需求、权限、资源配额</p>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">2</div>
+                                <div class="step-name">规划层</div>
+                                <p>自动生成分析脚本计划</p>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">3</div>
+                                <div class="step-name">执行层</div>
+                                <p>运行生物信息分析任务</p>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">4</div>
+                                <div class="step-name">审核层</div>
+                                <p>校验数据质控与结果</p>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">5</div>
+                                <div class="step-name">交付层</div>
+                                <p>输出整理好的结果</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>交付价值</h4>
+                        <p>您提供数据，AI 规划一切。系统通过 supervisors、planners、workers、reviewers、evidence、delivery
+                            六层协同，将项目需求、知识库检索、脚本执行、结果审核、证据留存和报告交付串成完整闭环，让生信分析像使用智能手机一样简单。</p>
+                    </div>
+                </div>
+
+                <!-- 案例解析 -->
+                <div id="ai-case" class="tab-content">
+                    <h2>应用案例</h2>
+                    <div class="case-grid">
+                        <div class="case-item">
+                            <h4>多组学数据集成分析</h4>
+                            <p>成功整合全基因组、转录组和表观组数据，发现关键基因调控网络。</p>
+                        </div>
+                        <div class="case-item">
+                            <h4>育种材料评估</h4>
+                            <p>快速鉴定育种材料的遗传背景和性状相关基因。</p>
+                        </div>
+                        <div class="case-item">
+                            <h4>性状相关基因挖掘</h4>
+                            <p>从复杂的重测序和多组学数据中自动发现产量、品质、抗逆等性状相关候选基因。</p>
+                        </div>
+                        <div class="case-item">
+                            <h4>重测序自动流程</h4>
+                            <p>自动完成质控、比对、变异检测、注释、富集分析和报告生成，保留完整日志与可复现脚本。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 结果展示 -->
+                <div id="ai-result" class="tab-content">
+                    <h2>典型结果</h2>
+                    <div class="result-showcase">
+                        <div class="result-item">
+                            <h4>出版级可视化图表</h4>
+                            <p>自动生成符合学术期刊标准的高质量图表</p>
+                        </div>
+                        <div class="result-item">
+                            <h4>结构化分析报告</h4>
+                            <p>完整的数据分析报告，包含方法学描述和结论</p>
+                        </div>
+                        <div class="result-item">
+                            <h4>可复现分析流程</h4>
+                            <p>提供完整的分析脚本和日志，支持结果追溯</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HSmaster -->
+            <section id="hsmaster" class="product-section">
+                <div class="product-tabs">
+                    <button class="tab-btn active" onclick="switchTab(event, 'hsmaster-intro')">产品介绍</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'hsmaster-case')">应用案例</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'hsmaster-result')">技术参数</button>
+                </div>
+
+                <!-- 产品介绍 -->
+                <div id="hsmaster-intro" class="tab-content active">
+                    <h2>HSmaster植物基因分型系统</h2>
+                    <p class="intro-subtitle">高通量、高精度的植物基因分型解决方案</p>
+
+                    <div class="media-grid">
+                        <div class="media-card">
+                            <img src="../公司资料/产品/HSmaster/图片/HSmaster全自动文库制备系统.png" alt="HSmaster全自动文库制备系统">
+                            <h4>HSmaster 全自动建库工作站</h4>
+                            <p>整合移液、PCR、酶标、抓手、堆栈、温控、振荡和离心模块，实现从核酸提取到建库的一步到位。</p>
+                        </div>
+                        <div class="media-card">
+                            <img src="../公司资料/产品/HSmaster/图片/HSmaster建库流程.png" alt="HSmaster建库流程">
+                            <h4>自动化建库流程</h4>
+                            <p>覆盖样本制备、核酸提取、PCR体系构建、文库纯化与质控，减少手工操作误差。</p>
+                        </div>
+                        <div class="media-card">
+                            <img src="../公司资料/产品/HSmaster/图片/文库流水线.png" alt="文库流水线">
+                            <h4>文库流水线</h4>
+                            <p>三台独立工作站串联完成核酸提取、PCR 体系构建、文库纯化，适配高通量批量生产。</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <h4>系统特色</h4>
+                            <ul>
+                                <li>高通量样品处理，全自动无人值守</li>
+                                <li>核酸提取、PCR扩增、文库质检全流程覆盖</li>
+                                <li>兼容 KASP 标记，模块化配置更灵活</li>
+                                <li>Hyper-seq 技术加持，实现低成本建库</li>
+                            </ul>
+                        </div>
+                        <div class="feature-item">
+                            <h4>应用领域</h4>
+                            <ul>
+                                <li>作物遗传育种</li>
+                                <li>种质资源评估</li>
+                                <li>品种鉴定与纯度检测</li>
+                                <li>分子标记辅助选择</li>
+                            </ul>
+                        </div>
+                        <div class="feature-item">
+                            <h4>自动化设备模块</h4>
+                            <ul>
+                                <li>植物样本制备模块：深孔板、裂解液和高速匀浆机完成破壁匀浆</li>
+                                <li>核酸提取和 PCR 模块：集成磁珠法、负压膜法、PCR、封膜和移液系统</li>
+                                <li>文库制备模块：自动化定位离心、低温、振荡、耗材堆栈和移液操作</li>
+                                <li>DNA 浓度检测模块：全波长光吸收酶标仪检测 DNA 浓度</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 应用案例 -->
+                <div id="hsmaster-case" class="tab-content">
+                    <h2>应用案例</h2>
+                    <div class="media-grid">
+                        <div class="media-card">
+                            <img src="../公司资料/产品/HSmaster/图片/基于Hyper-seq自动化实验室的深度学习GS育种.png" alt="深度学习GS育种">
+                            <h4>深度学习 GS 育种</h4>
+                            <p>将 Hyper-seq 低成本基因测序与 LSTM 等预测模型结合，实现早代选择和精准育种决策。</p>
+                        </div>
+                        <div class="media-card">
+                            <img src="../公司资料/产品/HSmaster/图片/基于Hyper-seq自动化实验室的回交育种.png" alt="回交育种">
+                            <h4>回交育种</h4>
+                            <p>低成本、高通量筛选回交群体遗传背景，支持标记辅助选择和目标材料鉴定。</p>
+                        </div>
+                        <div class="media-card">
+                            <img src="../公司资料/产品/HSmaster/图片/应用-诱变育种.png" alt="诱变育种">
+                            <h4>诱变育种</h4>
+                            <p>检测诱变造成的全基因组变异热区，辅助抗逆新品种开发和诱变机制研究。</p>
+                        </div>
+                        <div class="media-card">
+                            <img src="../公司资料/产品/HSmaster/图片/应用-DNA水平溯源检验.png" alt="DNA水平溯源检验">
+                            <h4>DNA 水平溯源检验</h4>
+                            <p>建立动植物全基因组扫描体系，为引进物种鉴定、有害生物预警和来源追溯提供 SNP 指纹数据。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 技术参数 -->
+                <div id="hsmaster-result" class="tab-content">
+                    <h2>技术参数</h2>
+                    <div class="table-section">
+                        <h4>基础规格</h4>
+                        <table class="service-table">
+                            <tbody>
+                                <tr>
+                                    <td>尺寸</td>
+                                    <td>3400 x 890 x 2140 mm</td>
+                                </tr>
+                                <tr>
+                                    <td>净重</td>
+                                    <td>2.5T</td>
+                                </tr>
+                                <tr>
+                                    <td>电源</td>
+                                    <td>100V-120V / 200V-240V AC，50/60Hz</td>
+                                </tr>
+                                <tr>
+                                    <td>版位数</td>
+                                    <td>60</td>
+                                </tr>
+                                <tr>
+                                    <td>通信接口</td>
+                                    <td>3 个 USB，1 个以太网口</td>
+                                </tr>
+                                <tr>
+                                    <td>显示方式</td>
+                                    <td>20 寸触摸屏</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="media-grid">
+                        <div class="media-card">
+                            <img src="../公司资料/产品/HSmaster/图片/自动化基因文库设备板位图.png" alt="自动化基因文库设备板位图">
+                            <h4>设备板位图</h4>
+                            <p>多模块板位布局适配批量样本处理与耗材自动调度。</p>
+                        </div>
+                        <div class="media-card">
+                            <img src="../公司资料/产品/HSmaster/图片/自动化核酸提取与PCR板位图.png" alt="自动化核酸提取与PCR板位图">
+                            <h4>核酸提取与 PCR 板位</h4>
+                            <p>支持核酸提取、PCR体系构建和下游建库流程连续运行。</p>
+                        </div>
+                        <div class="media-card">
+                            <img src="../公司资料/产品/HSmaster/图片/生信分析流程.png" alt="生信分析流程">
+                            <h4>配套生信流程</h4>
+                            <p>支持大规模基因型数据拆分、比对、SNP 检测和下游育种分析。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>联系信息</h3>
+                <p>三亚海古纪生物科技有限公司</p>
+                <p>谢经理：16689001917</p>
+                <p>基因文库技术：江肆肆 18605560158</p>
+                <p>育种数据服务：廖树欣 18889202989</p>
+                <p>高通量基因文库设备：杰瑞.葛 13601063401</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>关于海古纪</h3>
+                <ul>
+                    <li><a href="about.html#haiguji">公司简介</a></li>
+                    <li><a href="about.html#contact">联系我们</a></li>
+                    <li><a href="about.html#privacy">隐私协议</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>合作伙伴</h3>
+                <div class="footer-partners">
+                    <a class="partner-link" href="https://www.prcxi.com/" target="_blank"><img class="partner-logo"
+                            src="../公司资料/公司简介/中析生信logo.png" alt="苏州中析生物信息有限公司"><span>苏州中析生物信息有限公司</span></a>
+                    <a class="partner-link" href="https://www.hainanu.edu.cn/" target="_blank"><img class="partner-logo"
+                            src="../公司资料/公司简介/海南大学logo.png" alt="海南大学"><span>海南大学</span></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>关注我们</h3>
+                <div class="qr-grid">
+                    <div class="qr-slot">微信</div>
+                    <div class="qr-slot">微博</div>
+                    <div class="qr-slot">公众号</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 三亚海古纪生物科技有限公司. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script src="../js/pages.js"></script>
+</body>
+
+</html>

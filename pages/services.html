@@ -1,0 +1,725 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务 - 海古纪生物科技</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="../公司资料/公司简介/海古纪logo.png" alt="海古纪 Logo" class="logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">首页</a></li>
+                <li class="nav-item dropdown">
+                    <a href="products.html" class="nav-link">产品 <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="products.html#ai-scientist">AI生信科学家</a>
+                        <a href="products.html#hsmaster">HSmaster植物基因分型系统</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="services.html" class="nav-link">服务 <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="services.html#hyper-seq">Hyper-seq测序</a>
+                        <div class="submenu-trigger">
+                            <a href="services.html#wgs">全基因组重测序</a>
+                        </div>
+                        <a href="services.html#process-dev">实验流程开发与技术支持</a>
+                        <a href="services.html#ai-agri">AI农业领域定制</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="applications.html" class="nav-link">应用领域 <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="applications.html#breeding">种业研究</a>
+                        <a href="applications.html#microbe">微生物研究</a>
+                        <a href="applications.html#animal-plant">动植物研究</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="advantages.html" class="nav-link">综合优势 <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="advantages.html#sequencing">测序平台</a>
+                        <a href="advantages.html#mass-spec">质谱平台</a>
+                        <a href="advantages.html#synthesis">合成平台</a>
+                        <a href="advantages.html#analysis">分析平台</a>
+                        <a href="advantages.html#lab">核心实验室</a>
+                        <a href="advantages.html#css">客户服务系统</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="resources.html" class="nav-link">资源中心 <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="resources.html#case">精选案例</a>
+                        <a href="resources.html#news">资讯动态</a>
+                        <a href="resources.html#video">视频中心</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="about.html" class="nav-link">关于我们 <span class="arrow">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="about.html#haiguji">海古纪</a>
+                        <a href="about.html#contact">联系我们</a>
+                        <a href="about.html#news">最新动态</a>
+                        <a href="about.html#privacy">隐私协议</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="nav-right">
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-icon" title="公众号">☷</a>
+                    <div class="dropdown-menu">
+                        <div class="qrcode-container">
+                            <p>公众号二维码</p>
+                            <div class="qrcode qr-empty">二维码</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="customer-service.html" class="customer-service-link" title="客户服务系统">CSS</a>
+                <a href="about.html#contact" class="btn-contact">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 顶部大图 -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>测序与分析服务</h1>
+            <p>从样品到数据，提供一站式基因组学解决方案</p>
+        </div>
+    </section>
+
+    <!-- 服务内容 -->
+    <div class="products-container">
+        <!-- 左侧导航 -->
+        <aside class="product-sidebar">
+            <nav class="product-nav">
+                <div class="nav-section">
+                    <h3>服务类别</h3>
+                    <ul>
+                        <li><a href="#hyper-seq" class="nav-item active">Hyper-seq测序</a></li>
+                        <li><a href="#wgs" class="nav-item">全基因组重测序</a></li>
+                        <li><a href="#process-dev" class="nav-item">实验流程开发与技术支持</a></li>
+                        <li><a href="#ai-agri" class="nav-item">AI农业领域定制</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- 主要内容 -->
+        <main class="product-content">
+            <!-- Hyper-seq 测序 -->
+            <section id="hyper-seq" class="product-section">
+                <div class="product-tabs">
+                    <button class="tab-btn active" onclick="switchTab(event, 'hyper-intro')">服务介绍</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'hyper-case')">应用案例</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'hyper-result')">技术流程</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'hyper-sample')">送样要求</button>
+                </div>
+
+                <!-- 服务介绍 -->
+                <div id="hyper-intro" class="tab-content active">
+                    <h2>Hyper-seq 超低成本测序技术</h2>
+                    <p class="intro-subtitle">极低成本、高效、灵活、高通量的DNA测序文库制备与基因分型技术</p>
+                    <div class="service-video-block service-video-feature">
+                        <video controls preload="metadata" poster="../公司资料/产品/HSmaster/图片/hyper-seq.png">
+                            <source src="../公司资料/服务/Hyper-seq测序/Hyper-seq助力大数据育种变革.mp4" type="video/mp4">
+                            您的浏览器暂不支持视频播放。
+                        </video>
+                        <div>
+                            <h4>Hyper-seq 助力大数据育种变革</h4>
+                            <p>通过视频快速了解 Hyper-seq 在高通量、低成本基因分型和智能育种中的应用场景。视频下方继续展示服务介绍、技术优势与适用模式。</p>
+                        </div>
+                    </div>
+
+                    <div class="media-grid">
+                        <div class="media-card">
+                            <img src="../公司资料/产品/HSmaster/图片/hyper-seq.png" alt="Hyper-seq技术">
+                            <h4>Hyper-seq 技术</h4>
+                            <p>无需酶切和接头连接，通过一步 PCR 完成简化基因组、Barcode 添加和序列扩增。</p>
+                        </div>
+                        <div class="media-card">
+                            <img src="../公司资料/产品/HSmaster/图片/Methodology and application of Hyper-seq technology (Hyper-seq-G, Hyper-seq-FD, and Hyper-seq-INC).png"
+                                alt="Hyper-seq方法与应用">
+                            <h4>三种核心模式</h4>
+                            <p>Hyper-seq-G、Hyper-seq-FD、Hyper-seq-INC 按需覆盖常规育种、大基因组低成本分型和高精度定位。</p>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>🏆 技术成就</h4>
+                        <ul>
+                            <li>国际发明专利授权（专利号：No.2020/06979）</li>
+                            <li>全国颠覆性技术大赛领域赛优秀奖</li>
+                            <li>第一届"崖州湾杯"科技创新大赛一等奖</li>
+                        </ul>
+                    </div>
+
+                    <h4>四大核心优势</h4>
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <h4>① 极低成本</h4>
+                            <ul>
+                                <li>1G基因组样本，建库测序成本每个样本不到10美元</li>
+                                <li>单个样本分析成本50–150元人民币</li>
+                                <li>较同类技术成本降低50%以上</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-item">
+                            <h4>② 极简高效</h4>
+                            <ul>
+                                <li>仅需一步PCR</li>
+                                <li>建库时间缩短至3–5小时</li>
+                                <li>无需酶切、无需连接接头</li>
+                                <li>DNA样品质量要求低</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-item">
+                            <h4>③ 灵活调控</h4>
+                            <ul>
+                                <li>灵活调节标记密度</li>
+                                <li>内置三种核心模式</li>
+                                <li>常规模式、极简模式、高密度模式</li>
+                                <li>覆盖全场景应用</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-item">
+                            <h4>④ 高通量</h4>
+                            <ul>
+                                <li>单次完成96或384孔样本混合建库测序</li>
+                                <li>1000份水稻样品测序仅需一天</li>
+                                <li>完全自动化流程</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="table-section">
+                        <h4>Hyper-seq三种核心模式</h4>
+                        <table class="service-table">
+                            <thead>
+                                <tr>
+                                    <th>模式</th>
+                                    <th>标记覆盖度</th>
+                                    <th>适用物种</th>
+                                    <th>典型应用</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Hyper-seq-G</td>
+                                    <td>约10%基因组</td>
+                                    <td>大多数物种</td>
+                                    <td>常规育种研究</td>
+                                </tr>
+                                <tr>
+                                    <td>Hyper-seq-FD</td>
+                                    <td>0.0024–4.2%基因组</td>
+                                    <td>大基因组物种（小麦、玉米等）</td>
+                                    <td>极低成本育种</td>
+                                </tr>
+                                <tr>
+                                    <td>Hyper-seq-INC</td>
+                                    <td>约60%基因组</td>
+                                    <td>所有物种</td>
+                                    <td>高精度性状定位</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 成功案例 -->
+                <div id="hyper-case" class="tab-content">
+                    <h2>成功案例</h2>
+                    <div class="case-grid">
+                        <div class="case-item">
+                            <h4>马铃薯同源四倍体基因组研究</h4>
+                            <p><strong>发表期刊：</strong>Plant Biotechnology Journal (IF=13.8)</p>
+                            <p>利用Hyper-seq对150份四倍体马铃薯进行GWAS分析，成功揭示与块茎肉色显著相关的关键基因。</p>
+                        </div>
+                        <div class="case-item">
+                            <h4>美人蕉科植物基因组研究</h4>
+                            <p><strong>发表期刊：</strong>Frontiers in Plant Science (IF=6.627)</p>
+                            <p>对241份美人蕉材料进行分析，检测到1565万个SNP和InDel标记，完成群体遗传结构与叶片性状GWAS分析。</p>
+                        </div>
+                        <div class="case-item">
+                            <h4>槟榔果实形状GWAS研究</h4>
+                            <p><strong>发表期刊：</strong>International Journal of Molecular Sciences (IF=5.599)</p>
+                            <p>利用Hyper-seq对槟榔群体进行全基因组关联分析，定位调控果实形状的关键候选基因。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 技术流程 -->
+                <div id="hyper-result" class="tab-content">
+                    <h2>技术流程与应用领域</h2>
+                    <div class="workflow-section">
+                        <div class="workflow">
+                            <div class="workflow-step">
+                                <div class="step-number">1</div>
+                                <div class="step-name">DNA提取</div>
+                                <p>新鲜叶片或 DNA 样本快速提取</p>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">2</div>
+                                <div class="step-name">一步PCR</div>
+                                <p>3-5 小时完成建库</p>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">3</div>
+                                <div class="step-name">混合测序</div>
+                                <p>96 或 384 样本混合测序</p>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">4</div>
+                                <div class="step-name">SNP检测</div>
+                                <p>Barcode 拆分与标记检测</p>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">5</div>
+                                <div class="step-name">应用分析</div>
+                                <p>GWAS、QTL、指纹图谱、选择育种</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="media-grid">
+                        <div class="media-card">
+                            <img src="../公司资料/产品/HSmaster/图片/HSmaster建库流程.png" alt="Hyper-seq建库流程">
+                            <h4>建库流程</h4>
+                            <p>流程短、兼容性强，适合大规模群体样本快速产出基因型数据。</p>
+                        </div>
+                    </div>
+                    <div class="application-list">
+                        <div class="app-item">
+                            <h4>① 作物遗传背景筛选与回交育种</h4>
+                            <p>快速、低成本地筛选回交育种中的遗传背景，精准鉴定目标材料</p>
+                        </div>
+                        <div class="app-item">
+                            <h4>② 核心种质资源评估与构建</h4>
+                            <p>从庞大的种质资源库中快速筛选核心子集</p>
+                        </div>
+                        <div class="app-item">
+                            <h4>③ DNA指纹图谱与品种鉴定</h4>
+                            <p>高准确性、成本低的品种资源多样性评估和纯度鉴定</p>
+                        </div>
+                        <div class="app-item">
+                            <h4>④ 全基因组关联分析（GWAS）</h4>
+                            <p>检测到的分子标记数量远超传统育种芯片</p>
+                        </div>
+                        <div class="app-item">
+                            <h4>⑤ 遗传图谱构建与QTL定位</h4>
+                            <p>灵活可调的标记密度，按需精确锁定目标QTL位点</p>
+                        </div>
+                        <div class="app-item">
+                            <h4>⑥ 分子标记辅助选择育种</h4>
+                            <p>海量SNP/InDel标记注入"大数据基因燃料"</p>
+                        </div>
+                        <div class="app-item">
+                            <h4>⑦ 基因组选择育种</h4>
+                            <p>构建全基因组选择模型，实现精准智能化育种</p>
+                        </div>
+                        <div class="app-item">
+                            <h4>⑧ 生物安全防控与分子检测</h4>
+                            <p>快速分子检测，为检验检疫提供高效技术手段</p>
+                        </div>
+                        <div class="app-item">
+                            <h4>⑨ 目标关键基因与新候选基因定位</h4>
+                            <p>快速锁定目标性状相关的关键基因或新候选基因位点</p>
+                        </div>
+                        <div class="app-item">
+                            <h4>⑩ 物种鉴定与分类</h4>
+                            <p>基因组水平的分子标记比对，实现精准鉴定</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="hyper-sample" class="tab-content">
+                    <h2>送样要求</h2>
+                    <div class="table-section">
+                        <h4>常见样本建议</h4>
+                        <table class="service-table">
+                            <thead>
+                                <tr>
+                                    <th>样本类型</th>
+                                    <th>建议量</th>
+                                    <th>说明</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>植物组织</td>
+                                    <td>GBS/Hyper-seq 类项目建议至少 0.5 g</td>
+                                    <td>优先幼叶、幼芽，避免保存过久和反复冻融</td>
+                                </tr>
+                                <tr>
+                                    <td>DNA 样本</td>
+                                    <td>GBS 文库总量 > 300 ng，浓度 > 10 ng/μL</td>
+                                    <td>建议提供 Qubit、NanoDrop、凝胶电泳等质控结果</td>
+                                </tr>
+                                <tr>
+                                    <td>动物组织</td>
+                                    <td>大于 0.5 g</td>
+                                    <td>分割后液氮速冻，干冰运输</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="highlight-box">
+                        <h4>取样提醒</h4>
+                        <p>Hyper-seq 对 DNA 样品兼容性较强，但大规模项目更依赖样品一致性。建议采样前统一组织部位、保存方式、样品命名和批次信息。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 全基因组重测序 -->
+            <section id="wgs" class="product-section">
+                <div class="product-tabs">
+                    <button class="tab-btn active" onclick="switchTab(event, 'wgs-intro')">产品介绍</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'wgs-case')">案例解析</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'wgs-result')">结果展示</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'wgs-sample')">送样建议</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'wgs-faq')">常见问题</button>
+                </div>
+
+                <div id="wgs-intro" class="tab-content active">
+                    <h2>全基因组重测序</h2>
+                    <p class="intro-subtitle">面向种业、动植物、微生物与生态进化研究的全基因组变异检测服务</p>
+                    <div class="prose-block">
+                        <p>全基因组重测序是在已有参考基因组的基础上，对个体、品系、群体或菌株进行高通量测序，并通过序列比对和变异检测，系统识别 SNP、InDel、SV、CNV
+                            等遗传变异。该方案适用于种质资源评价、动植物育种、微生物比较基因组、群体进化、环境适应和重要性状解析等方向。</p>
+                        <p>服务流程覆盖样本质控、文库构建、DNBSEQ/高通量平台测序、数据质控、参考基因组比对、变异检测、功能注释和项目报告。分析结果可继续扩展到群体结构、系统发育、选择信号、GWAS、泛基因组或菌株溯源等下游研究。
+                        </p>
+                    </div>
+                    <figure class="inline-figure">
+                        <img src="../公司资料/产品/HSmaster/图片/生信分析流程.png" alt="全基因组重测序分析流程">
+                        <figcaption>从测序数据到变异检测、群体分析和生物学解释的标准分析路径</figcaption>
+                    </figure>
+
+                    <div class="feature-grid">
+                        <div class="feature-item" id="wgs-animal-plant">
+                            <h4>动植物全基因组重测序</h4>
+                            <ul>
+                                <li>服务作物、林木、花卉、中药材、畜禽、水产和野生资源研究</li>
+                                <li>支持种质资源评价、遗传多样性、GWAS、QTL 和选择信号分析</li>
+                                <li>可结合 Hyper-seq 和 HSmaster 建立高通量育种数据体系</li>
+                            </ul>
+                        </div>
+                        <div class="feature-item" id="wgs-microbe">
+                            <h4>微生物全基因组重测序</h4>
+                            <ul>
+                                <li>面向细菌、真菌、病毒和工程菌株比较研究</li>
+                                <li>支持耐药基因、毒力因子、质粒结构、菌株分型和传播溯源</li>
+                                <li>可用于工业菌种稳定性验证和污染排查</li>
+                            </ul>
+                        </div>
+                        <div class="feature-item" id="wgs-exome">
+                            <h4>目标区域与候选基因测序</h4>
+                            <ul>
+                                <li>聚焦候选基因区、QTL 区间、标记区域或定制目标区域</li>
+                                <li>在降低测序成本的同时提高目标区域覆盖深度</li>
+                                <li>适合大群体育种筛查、候选位点验证和特定通路研究</li>
+                            </ul>
+                        </div>
+                        <div class="feature-item" id="wgs-denovo">
+                            <h4>基因组从头测序</h4>
+                            <ul>
+                                <li>适用于无高质量参考基因组或需要构建新参考的物种</li>
+                                <li>可联合长读长、短读长和 Hi-C 等数据提升组装连续性</li>
+                                <li>为后续重测序、泛基因组和功能基因挖掘建立基础</li>
+                            </ul>
+                        </div>
+                        <div class="feature-item">
+                            <h4>多组学扩展</h4>
+                            <ul>
+                                <li>可与转录组、表观组、蛋白质组、代谢组和表型数据联合分析</li>
+                                <li>适合复杂性状解析和候选基因优先级排序</li>
+                                <li>支持 AI 生信科学家自动规划分析流程</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wgs-case" class="tab-content">
+                    <h2>案例解析</h2>
+                    <div class="case-grid">
+                        <div class="case-item">
+                            <h4>作物群体变异解析</h4>
+                            <p>对自然群体、杂交后代和核心种质进行全基因组重测序，建立高质量变异集，结合农艺表型筛选性状相关位点与候选基因。</p>
+                        </div>
+                        <div class="case-item">
+                            <h4>作物种质资源评价</h4>
+                            <p>对栽培种、地方品种和野生近缘种进行群体重测序，解析群体结构、遗传多样性和驯化选择信号。</p>
+                        </div>
+                        <div class="case-item">
+                            <h4>畜禽水产育种研究</h4>
+                            <p>围绕生长、繁殖、抗病、肉质和环境适应等性状开展群体变异检测，为基因组选择提供标记资源。</p>
+                        </div>
+                        <div class="case-item">
+                            <h4>农业与环境菌株比较</h4>
+                            <p>对根际菌、发酵菌、工程菌和环境菌株进行全基因组比较，分析功能基因、质粒结构、基因组稳定性和系统发育关系。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wgs-result" class="tab-content">
+                    <h2>结果展示</h2>
+                    <div class="prose-block">
+                        <p>项目交付包括原始数据质控报告、比对统计、覆盖度分布、变异检测结果、功能注释表、图形化统计结果和项目总结报告。群体项目可进一步输出 PCA、群体结构、系统发育树、LD
+                            衰减、选择信号、GWAS 曼哈顿图与候选基因列表。</p>
+                    </div>
+                    <figure class="inline-figure">
+                        <img src="../公司资料/产品/HSmaster/图片/训练群体和预测群体的选择.png" alt="训练群体和预测群体选择">
+                        <figcaption>群体重测序结果可用于训练群体与预测群体设计、基因组选择和育种决策</figcaption>
+                    </figure>
+                    <div class="table-section">
+                        <h4>主要交付结果</h4>
+                        <table class="service-table">
+                            <thead>
+                                <tr>
+                                    <th>结果类型</th>
+                                    <th>内容</th>
+                                    <th>用途</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>数据质控</td>
+                                    <td>Q30、GC、过滤 reads、测序深度和覆盖度</td>
+                                    <td>评估数据可靠性</td>
+                                </tr>
+                                <tr>
+                                    <td>变异检测</td>
+                                    <td>SNP、InDel、SV、CNV 及注释文件</td>
+                                    <td>构建高质量变异资源</td>
+                                </tr>
+                                <tr>
+                                    <td>群体分析</td>
+                                    <td>PCA、ADMIXTURE、系统发育、遗传多样性</td>
+                                    <td>解析群体关系与进化背景</td>
+                                </tr>
+                                <tr>
+                                    <td>功能分析</td>
+                                    <td>基因注释、GO/KEGG 富集、候选基因筛选</td>
+                                    <td>支撑论文与后续实验验证</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="wgs-sample" class="tab-content">
+                    <h2>送样建议</h2>
+                    <p class="intro-subtitle">不同样本类型需提前确认物种、组织来源、保存状态、样本量和项目目标。</p>
+                    <div class="table-section">
+                        <table class="service-table">
+                            <thead>
+                                <tr>
+                                    <th>样本类型</th>
+                                    <th>建议量</th>
+                                    <th>注意事项</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>DNA 样本</td>
+                                    <td>总量 > 400 ng，浓度 > 24 ng/μL</td>
+                                    <td>建议 Qubit 定量，提供 NanoDrop、凝胶或 Agilent 质控结果</td>
+                                </tr>
+                                <tr>
+                                    <td>植物组织</td>
+                                    <td>WGS 文库至少 0.2 g，总体建议 2 g 以上</td>
+                                    <td>优先幼叶、幼芽，避免反复冻融和长期保存</td>
+                                </tr>
+                                <tr>
+                                    <td>动物组织</td>
+                                    <td>大于 0.1 g</td>
+                                    <td>肌肉、鳍条、羽毛、耳组织等材料需冰上处理，液氮速冻或 -80℃ 保存，干冰运输</td>
+                                </tr>
+                                <tr>
+                                    <td>细胞样本</td>
+                                    <td>细胞量 > 5×10<sup>6</sup></td>
+                                    <td>优先生长对数期细胞，离心去上清后液氮速冻</td>
+                                </tr>
+                                <tr>
+                                    <td>微生物/环境样本</td>
+                                    <td>按项目确认</td>
+                                    <td>提前说明培养条件、样本来源、菌株用途和保存方式</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="highlight-box">
+                        <h4>送样提醒</h4>
+                        <p>为保证 DNA 质量和项目进度，请尽量统一采样部位、保存方式和样品命名；微生物样本需提前沟通培养条件、菌株来源和运输方式。</p>
+                    </div>
+                </div>
+
+                <div id="wgs-faq" class="tab-content">
+                    <h2>常见问题</h2>
+                    <div class="application-list">
+                        <div class="app-item">
+                            <h4>如何选择测序深度？</h4>
+                            <p>单个样本精细变异检测通常需要更高深度；大群体研究可根据群体规模、基因组大小和目标分析选择低至中深度方案。</p>
+                        </div>
+                        <div class="app-item">
+                            <h4>没有参考基因组怎么办？</h4>
+                            <p>可先开展基因组从头测序构建参考，也可选择近缘物种参考基因组进行探索性分析，但结果解释需更谨慎。</p>
+                        </div>
+                        <div class="app-item">
+                            <h4>重测序和 Hyper-seq 如何选择？</h4>
+                            <p>全基因组重测序覆盖更完整，适合系统变异发现；Hyper-seq 成本更低、通量更高，适合大规模育种分型和标记筛选。</p>
+                        </div>
+                        <div class="app-item">
+                            <h4>是否支持后续个性化分析？</h4>
+                            <p>支持。可根据项目目标扩展 GWAS、选择信号、群体历史、菌株溯源、多组学关联和 AI 辅助报告解读。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 实验流程开发与技术支持 -->
+            <section id="process-dev" class="product-section">
+                <h2>实验流程开发与技术支持</h2>
+                <p class="intro-subtitle">依托原创技术，定制全流程实验方案</p>
+                <div class="prose-block">
+                    <p>依托公司原创技术优势，为客户定制实验流程（如Hyper-seq实验流程），提供技术培训、流程植入、后续技术支持等服务（如协议相关合作内容）；同时可结合客户实验室硬件配置，提供实验流程适配性开发、技术问题解答、实验人员实操指导等全流程支持。</p>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>定制实验流程</h4>
+                        <ul>
+                            <li>基于Hyper-seq等原创技术定制专属实验方案</li>
+                            <li>结合客户实验室硬件配置进行流程适配</li>
+                            <li>实验流程优化与标准化</li>
+                        </ul>
+                    </div>
+                    <div class="feature-item">
+                        <h4>技术培训与植入</h4>
+                        <ul>
+                            <li>实验人员实操指导与培训</li>
+                            <li>流程植入与实验室体系对接</li>
+                            <li>技术问题全程解答</li>
+                        </ul>
+                    </div>
+                    <div class="feature-item">
+                        <h4>后续技术支持</h4>
+                        <ul>
+                            <li>协议相关的长期合作支持</li>
+                            <li>实验流程持续优化与迭代</li>
+                            <li>新技术同步更新服务</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI农业领域定制 -->
+            <section id="ai-agri" class="product-section">
+                <h2>AI农业领域定制</h2>
+                <p class="intro-subtitle">AI赋能农业科研与产业应用</p>
+                <div class="prose-block">
+                    <p>结合人工智能技术与农业科研/产业需求，定制化开发农业相关AI分析模型（如作物性状预测、育种数据挖掘、病虫害分子检测AI识别等），提供模型训练、部署及后续技术优化，助力AI在农业领域的落地应用。</p>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>作物性状预测</h4>
+                        <ul>
+                            <li>基于多组学数据构建产量、品质等性状预测模型</li>
+                            <li>整合环境与表型数据的智能预测</li>
+                            <li>育种决策辅助支持</li>
+                        </ul>
+                    </div>
+                    <div class="feature-item">
+                        <h4>育种数据挖掘</h4>
+                        <ul>
+                            <li>大规模基因型-表型关联分析</li>
+                            <li>基因组选择模型构建与优化</li>
+                            <li>关键候选基因智能筛选</li>
+                        </ul>
+                    </div>
+                    <div class="feature-item">
+                        <h4>AI分子检测</h4>
+                        <ul>
+                            <li>病虫害分子检测AI识别</li>
+                            <li>智能图像识别与诊断</li>
+                            <li>自动化检测流程开发</li>
+                        </ul>
+                    </div>
+                    <div class="feature-item">
+                        <h4>模型部署与优化</h4>
+                        <ul>
+                            <li>模型训练与部署服务</li>
+                            <li>后续技术优化与迭代</li>
+                            <li>定制化AI解决方案</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>联系信息</h3>
+                <p>三亚海古纪生物科技有限公司</p>
+                <p>谢经理：16689001917</p>
+                <p>基因文库技术：江肆肆 18605560158</p>
+                <p>育种数据服务：廖树欣 18889202989</p>
+                <p>高通量基因文库设备：杰瑞.葛 13601063401</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>关于海古纪</h3>
+                <ul>
+                    <li><a href="about.html#haiguji">公司简介</a></li>
+                    <li><a href="about.html#contact">联系我们</a></li>
+                    <li><a href="about.html#privacy">隐私协议</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>合作伙伴</h3>
+                <div class="footer-partners">
+                    <a class="partner-link" href="https://www.prcxi.com/" target="_blank"><img class="partner-logo"
+                            src="../公司资料/公司简介/中析生信logo.png" alt="苏州中析生物信息有限公司"><span>苏州中析生物信息有限公司</span></a>
+                    <a class="partner-link" href="https://www.hainanu.edu.cn/" target="_blank"><img class="partner-logo"
+                            src="../公司资料/公司简介/海南大学logo.png" alt="海南大学"><span>海南大学</span></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>关注我们</h3>
+                <div class="qr-grid">
+                    <div class="qr-slot">微信</div>
+                    <div class="qr-slot">微博</div>
+                    <div class="qr-slot">公众号</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 三亚海古纪生物科技有限公司. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script src="../js/pages.js"></script>
+</body>
+
+</html>
