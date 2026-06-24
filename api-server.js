@@ -8,7 +8,7 @@ const DATA_DIR = path.join(__dirname, 'data');
 const MESSAGE_FILE = path.join(DATA_DIR, 'contact-messages.json');
 const PORT = Number(process.env.PORT || 8080);
 const CORS_ORIGIN = process.env.CORS_ORIGIN || 'https://potaser.github.io';
-const RESEND_KEY = process.env.RESEND_KEY || 're_X7w38uAb_6D4SMbSeN6VJZpZ8VjCxfQ5e';
+const RESEND_KEY = process.env.RESEND_KEY || '';
 const MAIL_TO = process.env.MAIL_TO || '';
 const SUMMARY_INTERVAL = Number(process.env.SUMMARY_INTERVAL || 15) * 60 * 1000;
 
@@ -97,7 +97,7 @@ async function handleContact(req, res) {
     const item = { id: crypto.randomUUID(), createdAt: now, notified: false, notifiedAt: null, ...result.data };
     messages.push(item);
     writeMessages(messages);
-    if (MAIL_TO) scheduleSummary();
+    if (MAIL_TO && RESEND_KEY) scheduleSummary();
     sendJson(res, 201, { ok: true, id: item.id });
   } catch (error) {
     sendJson(res, 500, { ok: false, errors: [error.message || '提交失败'] });
@@ -128,7 +128,7 @@ function scheduleSummary() {
   if (summaryTimer) return;
   summaryTimer = setTimeout(() => {
     summaryTimer = null;
-    if (!MAIL_TO) { return; }
+    if (!MAIL_TO || !RESEND_KEY) { return; }
     const messages = readMessages();
     const pending = messages.filter(m => !m.notified);
     if (!pending.length) { return; }
@@ -167,9 +167,7 @@ const server = http.createServer((req, res) => {
 ensureStore();
 server.listen(PORT, () => {
   console.log(`API server running on port ${PORT}`);
-  if (MAIL_TO) {
-    console.log(`有表单提交后 ${SUMMARY_INTERVAL / 60000} 分钟发送汇总邮件至 ${MAIL_TO}`);
-  } else {
-    console.log('MAIL_TO 未设置，请在 Render Environment 中添加');
-  }
+  if (!RESEND_KEY) console.log('⚠ RESEND_KEY 未设置，邮件功能不可用。请在 Render Environment 中添加。');
+  if (!MAIL_TO) console.log('⚠ MAIL_TO 未设置，邮件功能不可用。请在 Render Environment 中添加。');
+  if (RESEND_KEY && MAIL_TO) console.log(`✅ 有表单提交后 ${SUMMARY_INTERVAL / 60000} 分钟发送汇总邮件至 ${MAIL_TO}`);
 });
