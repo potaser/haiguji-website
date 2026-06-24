@@ -190,7 +190,7 @@ async function handleContactForm(event) {
     submitButton.textContent = '提交中...';
 
     try {
-        const response = await fetch('/api/contact', {
+        const response = await fetch('https://haiguji-website.onrender.com/api/contact', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
