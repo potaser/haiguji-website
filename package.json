@@ -1,11 +1,7 @@
 ﻿{
-  "dependencies": {
-    "nodemailer": "^6.9.0"
-  },
   "scripts": {
     "start": "node api-server.js",
-    "server": "node server.js",
-    "check:contacts": "node scripts/check-contact-messages.js"
+    "server": "node server.js"
   },
   "engines": {
     "node": ">=18.0.0"

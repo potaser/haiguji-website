@@ -1,37 +1,16 @@
+const https = require('https');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const nodemailer = require('nodemailer');
 
 const DATA_DIR = path.join(__dirname, 'data');
 const MESSAGE_FILE = path.join(DATA_DIR, 'contact-messages.json');
 const PORT = Number(process.env.PORT || 8080);
-
 const CORS_ORIGIN = process.env.CORS_ORIGIN || 'https://potaser.github.io';
-
-const MAIL_USER = process.env.MAIL_USER || '120494581@qq.com';
-const MAIL_PASS = process.env.MAIL_PASS || 'fredpdlmapfdbhic';
-const MAIL_TO = process.env.MAIL_TO || MAIL_USER;
-
-const transporter = nodemailer.createTransport({
-  host: process.env.MAIL_HOST || 'smtp.qq.com',
-  port: Number(process.env.MAIL_PORT || 587),
-  secure: process.env.MAIL_SECURE === 'true',
-  requireTLS: true,
-  auth: { user: MAIL_USER, pass: MAIL_PASS },
-  connectionTimeout: 15000,
-  greetingTimeout: 15000
-});
-
-function sendMail(subject, text) {
-  return transporter.sendMail({
-    from: MAIL_USER,
-    to: MAIL_TO,
-    subject,
-    text
-  });
-}
+const RESEND_KEY = process.env.RESEND_KEY || 're_X7w38uAb_6D4SMbSeN6VJZpZ8VjCxfQ5e';
+const MAIL_TO = process.env.MAIL_TO || '';
+const SUMMARY_INTERVAL = Number(process.env.SUMMARY_INTERVAL || 15) * 60 * 1000;
 
 function ensureStore() {
   fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -41,8 +20,8 @@ function ensureStore() {
 function readMessages() {
   ensureStore();
   try {
-    const data = JSON.parse(fs.readFileSync(MESSAGE_FILE, 'utf8'));
-    return Array.isArray(data) ? data : [];
+    const d = JSON.parse(fs.readFileSync(MESSAGE_FILE, 'utf8'));
+    return Array.isArray(d) ? d : [];
   } catch (_) { return []; }
 }
 
@@ -66,70 +45,45 @@ function sendJson(res, status, payload) {
 function collectBody(req, limit = 1024 * 1024) {
   return new Promise((resolve, reject) => {
     let body = '';
-    req.on('data', chunk => {
-      body += chunk;
-      if (Buffer.byteLength(body) > limit) {
-        reject(new Error('请求内容过大'));
-        req.destroy();
-      }
-    });
+    req.on('data', c => { body += c; if (Buffer.byteLength(body) > limit) { reject(new Error('请求内容过大')); req.destroy(); } });
     req.on('end', () => resolve(body));
     req.on('error', reject);
   });
 }
 
-function normalizeText(value, max = 2000) {
-  return String(value || '').trim().slice(0, max);
-}
-
-function validEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
+function normalizeText(v, max = 2000) { return String(v || '').trim().slice(0, max); }
+function validEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
 
 function validPhone(countryCode, phone) {
   const raw = String(phone || '').trim();
   if (!raw) return true;
-  const normalized = raw.replace(/[\s()-]/g, '');
-  const rules = {
-    '+86': /^1[3-9]\d{9}$/,
-    '+1': /^[2-9]\d{2}[2-9]\d{6}$/,
-    '+44': /^7\d{9}$/,
-    '+81': /^0?\d{9,10}$/,
-    '+65': /^[689]\d{7}$/,
-    other: /^\d{6,15}$/
-  };
-  return (rules[countryCode] || rules.other).test(normalized);
+  const n = raw.replace(/[\s()-]/g, '');
+  const rules = { '+86': /^1[3-9]\d{9}$/, '+1': /^[2-9]\d{2}[2-9]\d{6}$/, '+44': /^7\d{9}$/, '+81': /^0?\d{9,10}$/, '+65': /^[689]\d{7}$/, other: /^\d{6,15}$/ };
+  return (rules[countryCode] || rules.other).test(n);
 }
 
-function validCountryCode(code) {
-  return /^\+[1-9]\d{0,3}$/.test(code);
-}
+function validCountryCode(c) { return /^\+[1-9]\d{0,3}$/.test(c); }
 
 function validateContact(input) {
   const name = normalizeText(input.name, 100);
   const email = normalizeText(input.email, 200);
-  const rawCountryCode = normalizeText(input.countryCode || '+86', 20);
-  const customCountryCode = normalizeText(input.customCountryCode || '', 20);
-  const countryCode = rawCountryCode === 'other' ? customCountryCode : rawCountryCode;
+  const rawCC = normalizeText(input.countryCode || '+86', 20);
+  const ccc = normalizeText(input.customCountryCode || '', 20);
+  const countryCode = rawCC === 'other' ? ccc : rawCC;
   const phone = normalizeText(input.phone, 80);
-  const inquiryTypeValue = normalizeText(input.inquiryType, 100);
-  const customInquiryType = normalizeText(input.customInquiryType || input.otherInquiryType, 100);
+  const itv = normalizeText(input.inquiryType, 100);
+  const cit = normalizeText(input.customInquiryType || input.otherInquiryType, 100);
   const message = normalizeText(input.message, 4000);
-  const inquiryType = inquiryTypeValue === 'other' ? customInquiryType : inquiryTypeValue;
-
+  const inquiryType = itv === 'other' ? cit : itv;
   const errors = [];
   if (!name) errors.push('姓名必须填写');
   if (!email && !phone) errors.push('邮箱和手机至少填写一项');
   if (email && !validEmail(email)) errors.push('邮箱格式不正确');
-  if (phone && rawCountryCode === 'other' && !validCountryCode(countryCode)) errors.push('国家/地区代码格式不正确');
-  if (phone && !validPhone(rawCountryCode, phone)) errors.push('手机格式不正确');
+  if (phone && rawCC === 'other' && !validCountryCode(countryCode)) errors.push('国家/地区代码格式不正确');
+  if (phone && !validPhone(rawCC, phone)) errors.push('手机格式不正确');
   if (!inquiryType) errors.push('咨询类型必须填写');
   if (!message) errors.push('消息内容必须填写');
-
-  return {
-    errors,
-    data: { name, email, countryCode, phone, inquiryType, message }
-  };
+  return { errors, data: { name, email, countryCode, phone, inquiryType, message } };
 }
 
 async function handleContact(req, res) {
@@ -138,44 +92,71 @@ async function handleContact(req, res) {
     const input = JSON.parse(body || '{}');
     const result = validateContact(input);
     if (result.errors.length) return sendJson(res, 400, { ok: false, errors: result.errors });
-
     const messages = readMessages();
     const now = new Date().toISOString();
-    const item = {
-      id: crypto.randomUUID(),
-      createdAt: now,
-      notified: false,
-      notifiedAt: null,
-      ...result.data
-    };
+    const item = { id: crypto.randomUUID(), createdAt: now, notified: false, notifiedAt: null, ...result.data };
     messages.push(item);
     writeMessages(messages);
-
-    console.log('准备发送邮件通知至:', MAIL_TO);
-    const mailText = `姓名：${item.name}
-邮箱：${item.email || '未填写'}
-电话：${item.countryCode} ${item.phone || '未填写'}
-咨询类型：${item.inquiryType}
-消息内容：${item.message}
-提交时间：${item.createdAt}`;
-
-    sendMail(`【海古纪-联系我们】新消息来自 ${item.name}`, mailText).catch(err => console.error('邮件发送失败:', err.message));
-
+    if (MAIL_TO) scheduleSummary();
     sendJson(res, 201, { ok: true, id: item.id });
   } catch (error) {
     sendJson(res, 500, { ok: false, errors: [error.message || '提交失败'] });
   }
 }
 
-const server = http.createServer((req, res) => {
-  console.log(`${new Date().toISOString()} ${req.method} ${req.url}`);
-  if (req.method === 'OPTIONS') {
-    res.writeHead(204, {
-      'Access-Control-Allow-Origin': CORS_ORIGIN,
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Max-Age': '86400'
+function sendResendMail(to, subject, html) {
+  return new Promise((resolve, reject) => {
+    const data = JSON.stringify({ from: 'onboarding@resend.dev', to, subject, html });
+    const opts = {
+      hostname: 'api.resend.com', path: '/emails', method: 'POST',
+      headers: { 'Authorization': `Bearer ${RESEND_KEY}`, 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(data) }
+    };
+    const req = https.request(opts, res => {
+      let b = '';
+      res.on('data', c => b += c);
+      res.on('end', () => { try { resolve(JSON.parse(b)); } catch (_) { resolve(b); } });
     });
+    req.on('error', reject);
+    req.write(data);
+    req.end();
+  });
+}
+
+let summaryTimer = null;
+
+function scheduleSummary() {
+  if (summaryTimer) return;
+  summaryTimer = setTimeout(() => {
+    summaryTimer = null;
+    if (!MAIL_TO) { return; }
+    const messages = readMessages();
+    const pending = messages.filter(m => !m.notified);
+    if (!pending.length) { return; }
+    const lines = pending.map((m, i) =>
+      `<tr><td>${i + 1}</td><td>${m.name}</td><td>${m.email || '-'}</td><td>${m.countryCode || ''} ${m.phone || '-'}</td><td>${m.inquiryType}</td><td>${m.message}</td><td>${new Date(m.createdAt).toLocaleString('zh-CN')}</td></tr>`
+    ).join('');
+    const html = `<h2>海古纪网站 - 新联系消息汇总</h2><p>共有 ${pending.length} 条新消息：</p>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%">
+<thead><tr style="background:#1e3c72;color:#fff"><th>#</th><th>姓名</th><th>邮箱</th><th>电话</th><th>咨询类型</th><th>消息内容</th><th>提交时间</th></tr></thead>
+<tbody>${lines}</tbody></table>`;
+    const now = new Date().toISOString();
+    sendResendMail(MAIL_TO, `【海古纪-联系我们】${pending.length} 条新消息汇总`, html)
+      .then(r => {
+        if (r && r.id) {
+          const updated = messages.map(m => m.notified ? m : { ...m, notified: true, notifiedAt: now });
+          writeMessages(updated);
+          console.log(`汇总邮件已发送 (${pending.length} 条) 至 ${MAIL_TO}`);
+        } else {
+          console.error('汇总邮件发送失败:', JSON.stringify(r));
+        }
+      })
+      .catch(err => console.error('汇总邮件发送失败:', err.message));
+  }, SUMMARY_INTERVAL);
+}
+
+const server = http.createServer((req, res) => {
+  if (req.method === 'OPTIONS') {
+    res.writeHead(204, { 'Access-Control-Allow-Origin': CORS_ORIGIN, 'Access-Control-Allow-Headers': 'Content-Type', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Max-Age': '86400' });
     return res.end();
   }
   if (req.method === 'POST' && req.url === '/api/contact') return handleContact(req, res);
@@ -186,4 +167,9 @@ const server = http.createServer((req, res) => {
 ensureStore();
 server.listen(PORT, () => {
   console.log(`API server running on port ${PORT}`);
+  if (MAIL_TO) {
+    console.log(`有表单提交后 ${SUMMARY_INTERVAL / 60000} 分钟发送汇总邮件至 ${MAIL_TO}`);
+  } else {
+    console.log('MAIL_TO 未设置，请在 Render Environment 中添加');
+  }
 });
