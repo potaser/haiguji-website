@@ -148,6 +148,7 @@ async function handleContact(req, res) {
     messages.push(item);
     writeMessages(messages);
 
+    console.log('准备发送邮件通知至:', MAIL_TO);
     const mailText = `姓名：${item.name}
 邮箱：${item.email || '未填写'}
 电话：${item.countryCode} ${item.phone || '未填写'}
@@ -155,7 +156,7 @@ async function handleContact(req, res) {
 消息内容：${item.message}
 提交时间：${item.createdAt}`;
 
-    sendMail(`【海古纪-联系我们】新消息来自 ${item.name}`, mailText).catch(() => {});
+    sendMail(`【海古纪-联系我们】新消息来自 ${item.name}`, mailText).catch(err => console.error('邮件发送失败:', err.message));
 
     sendJson(res, 201, { ok: true, id: item.id });
   } catch (error) {
