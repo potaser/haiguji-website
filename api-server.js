@@ -16,9 +16,12 @@ const MAIL_TO = process.env.MAIL_TO || MAIL_USER;
 
 const transporter = nodemailer.createTransport({
   host: process.env.MAIL_HOST || 'smtp.qq.com',
-  port: Number(process.env.MAIL_PORT || 465),
-  secure: process.env.MAIL_SECURE !== 'false',
-  auth: { user: MAIL_USER, pass: MAIL_PASS }
+  port: Number(process.env.MAIL_PORT || 587),
+  secure: process.env.MAIL_SECURE === 'true',
+  requireTLS: true,
+  auth: { user: MAIL_USER, pass: MAIL_PASS },
+  connectionTimeout: 15000,
+  greetingTimeout: 15000
 });
 
 function sendMail(subject, text) {
