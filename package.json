@@ -1,6 +1,7 @@
 ﻿{
   "scripts": {
-    "start": "node server.js",
+    "start": "node api-server.js",
+    "server": "node server.js",
     "check:contacts": "node scripts/check-contact-messages.js"
   },
   "engines": {
