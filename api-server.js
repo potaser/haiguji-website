@@ -168,6 +168,7 @@ async function handleContact(req, res) {
 }
 
 const server = http.createServer((req, res) => {
+  console.log(`${new Date().toISOString()} ${req.method} ${req.url}`);
   if (req.method === 'OPTIONS') {
     res.writeHead(204, {
       'Access-Control-Allow-Origin': CORS_ORIGIN,
