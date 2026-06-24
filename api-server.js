@@ -126,36 +126,45 @@ function sendResendMail(to, subject, html) {
   });
 }
 
+function flushPending() {
+  if (!MAIL_TO || !RESEND_KEY) { return; }
+  const messages = readMessages();
+  const pending = messages.filter(m => !m.notified);
+  if (!pending.length) { return; }
+  const lines = pending.map((m, i) =>
+    `<tr><td>${i + 1}</td><td>${m.name}</td><td>${m.email || '-'}</td><td>${m.countryCode || ''} ${m.phone || '-'}</td><td>${m.inquiryType}</td><td>${m.message}</td><td>${new Date(m.createdAt).toLocaleString('zh-CN')}</td></tr>`
+  ).join('');
+  const html = `<h2>海古纪网站 - 新联系消息汇总</h2><p>共有 ${pending.length} 条新消息：</p>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%">
+<thead><tr style="background:#1e3c72;color:#fff"><th>#</th><th>姓名</th><th>邮箱</th><th>电话</th><th>咨询类型</th><th>消息内容</th><th>提交时间</th></tr></thead>
+<tbody>${lines}</tbody></table>`;
+  const now = new Date().toISOString();
+  sendResendMail(MAIL_TO, `【海古纪-联系我们】${pending.length} 条新消息汇总`, html)
+    .then(r => {
+      if (r && r.id) {
+        const updated = messages.map(m => m.notified ? m : { ...m, notified: true, notifiedAt: now });
+        writeMessages(updated);
+        console.log(`汇总邮件已发送 (${pending.length} 条) 至 ${MAIL_TO}`);
+      } else {
+        console.error('汇总邮件发送失败:', JSON.stringify(r));
+      }
+    })
+    .catch(err => console.error('汇总邮件发送失败:', err.message));
+}
+
 let summaryTimer = null;
 
 function scheduleSummary() {
   if (summaryTimer) return;
   summaryTimer = setTimeout(() => {
     summaryTimer = null;
-    if (!MAIL_TO || !RESEND_KEY) { return; }
-    const messages = readMessages();
-    const pending = messages.filter(m => !m.notified);
-    if (!pending.length) { return; }
-    const lines = pending.map((m, i) =>
-      `<tr><td>${i + 1}</td><td>${m.name}</td><td>${m.email || '-'}</td><td>${m.countryCode || ''} ${m.phone || '-'}</td><td>${m.inquiryType}</td><td>${m.message}</td><td>${new Date(m.createdAt).toLocaleString('zh-CN')}</td></tr>`
-    ).join('');
-    const html = `<h2>海古纪网站 - 新联系消息汇总</h2><p>共有 ${pending.length} 条新消息：</p>
-<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%">
-<thead><tr style="background:#1e3c72;color:#fff"><th>#</th><th>姓名</th><th>邮箱</th><th>电话</th><th>咨询类型</th><th>消息内容</th><th>提交时间</th></tr></thead>
-<tbody>${lines}</tbody></table>`;
-    const now = new Date().toISOString();
-    sendResendMail(MAIL_TO, `【海古纪-联系我们】${pending.length} 条新消息汇总`, html)
-      .then(r => {
-        if (r && r.id) {
-          const updated = messages.map(m => m.notified ? m : { ...m, notified: true, notifiedAt: now });
-          writeMessages(updated);
-          console.log(`汇总邮件已发送 (${pending.length} 条) 至 ${MAIL_TO}`);
-        } else {
-          console.error('汇总邮件发送失败:', JSON.stringify(r));
-        }
-      })
-      .catch(err => console.error('汇总邮件发送失败:', err.message));
+    flushPending();
   }, SUMMARY_INTERVAL);
+}
+
+function sendSummaryImmediately() {
+  flushPending();
+  scheduleSummary();
 }
 
 const server = http.createServer((req, res) => {
@@ -177,8 +186,8 @@ server.listen(PORT, () => {
     console.log(`✅ 有表单提交后 ${SUMMARY_INTERVAL / 60000} 分钟发送汇总邮件至 ${MAIL_TO}`);
     const pending = readMessages().filter(m => !m.notified);
     if (pending.length > 0) {
-      console.log(`检测到 ${pending.length} 条未发送的待处理消息，启动汇总定时器`);
-      scheduleSummary();
+      console.log(`检测到 ${pending.length} 条未发送的待处理消息，立即发送汇总`);
+      sendSummaryImmediately();
     }
   }
 });
