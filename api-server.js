@@ -2,12 +2,32 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const nodemailer = require('nodemailer');
 
 const DATA_DIR = path.join(__dirname, 'data');
 const MESSAGE_FILE = path.join(DATA_DIR, 'contact-messages.json');
 const PORT = Number(process.env.PORT || 8080);
 
 const CORS_ORIGIN = process.env.CORS_ORIGIN || 'https://potaser.github.io';
+
+const transporter = nodemailer.createTransport({
+  host: 'smtp.qq.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: '120494581@qq.com',
+    pass: 'fredpdlmapfdbhic'
+  }
+});
+
+function sendMail(subject, text) {
+  return transporter.sendMail({
+    from: '120494581@qq.com',
+    to: '120494581@qq.com',
+    subject,
+    text
+  });
+}
 
 function ensureStore() {
   fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -126,6 +146,16 @@ async function handleContact(req, res) {
     };
     messages.push(item);
     writeMessages(messages);
+
+    const mailText = `姓名：${item.name}
+邮箱：${item.email || '未填写'}
+电话：${item.countryCode} ${item.phone || '未填写'}
+咨询类型：${item.inquiryType}
+消息内容：${item.message}
+提交时间：${item.createdAt}`;
+
+    sendMail(`【海古纪-联系我们】新消息来自 ${item.name}`, mailText).catch(() => {});
+
     sendJson(res, 201, { ok: true, id: item.id });
   } catch (error) {
     sendJson(res, 500, { ok: false, errors: [error.message || '提交失败'] });

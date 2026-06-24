@@ -1,4 +1,7 @@
 ﻿{
+  "dependencies": {
+    "nodemailer": "^6.9.0"
+  },
   "scripts": {
     "start": "node api-server.js",
     "server": "node server.js",
