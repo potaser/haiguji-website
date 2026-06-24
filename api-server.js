@@ -10,20 +10,21 @@ const PORT = Number(process.env.PORT || 8080);
 
 const CORS_ORIGIN = process.env.CORS_ORIGIN || 'https://potaser.github.io';
 
+const MAIL_USER = process.env.MAIL_USER || '120494581@qq.com';
+const MAIL_PASS = process.env.MAIL_PASS || 'fredpdlmapfdbhic';
+const MAIL_TO = process.env.MAIL_TO || MAIL_USER;
+
 const transporter = nodemailer.createTransport({
-  host: 'smtp.qq.com',
-  port: 465,
-  secure: true,
-  auth: {
-    user: '120494581@qq.com',
-    pass: 'fredpdlmapfdbhic'
-  }
+  host: process.env.MAIL_HOST || 'smtp.qq.com',
+  port: Number(process.env.MAIL_PORT || 465),
+  secure: process.env.MAIL_SECURE !== 'false',
+  auth: { user: MAIL_USER, pass: MAIL_PASS }
 });
 
 function sendMail(subject, text) {
   return transporter.sendMail({
-    from: '120494581@qq.com',
-    to: '120494581@qq.com',
+    from: MAIL_USER,
+    to: MAIL_TO,
     subject,
     text
   });
