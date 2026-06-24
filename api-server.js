@@ -114,9 +114,13 @@ function sendResendMail(to, subject, html) {
     const req = https.request(opts, res => {
       let b = '';
       res.on('data', c => b += c);
-      res.on('end', () => { try { resolve(JSON.parse(b)); } catch (_) { resolve(b); } });
+      res.on('end', () => {
+        try { const j = JSON.parse(b); resolve(j); }
+        catch (_) { resolve({ raw: b }); }
+      });
     });
     req.on('error', reject);
+    req.setTimeout(30000, () => { req.destroy(); reject(new Error('Resend API 超时')); });
     req.write(data);
     req.end();
   });
@@ -169,5 +173,12 @@ server.listen(PORT, () => {
   console.log(`API server running on port ${PORT}`);
   if (!RESEND_KEY) console.log('⚠ RESEND_KEY 未设置，邮件功能不可用。请在 Render Environment 中添加。');
   if (!MAIL_TO) console.log('⚠ MAIL_TO 未设置，邮件功能不可用。请在 Render Environment 中添加。');
-  if (RESEND_KEY && MAIL_TO) console.log(`✅ 有表单提交后 ${SUMMARY_INTERVAL / 60000} 分钟发送汇总邮件至 ${MAIL_TO}`);
+  if (RESEND_KEY && MAIL_TO) {
+    console.log(`✅ 有表单提交后 ${SUMMARY_INTERVAL / 60000} 分钟发送汇总邮件至 ${MAIL_TO}`);
+    const pending = readMessages().filter(m => !m.notified);
+    if (pending.length > 0) {
+      console.log(`检测到 ${pending.length} 条未发送的待处理消息，启动汇总定时器`);
+      scheduleSummary();
+    }
+  }
 });
