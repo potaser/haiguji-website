@@ -82,7 +82,7 @@ body {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(105deg, rgba(70, 150, 205, 0.56) 0%, rgba(86, 128, 205, 0.44) 46%, rgba(115, 92, 175, 0.36) 100%);
+    background: linear-gradient(105deg, rgba(232, 238, 142, 0.62) 0%, rgba(188, 221, 126, 0.52) 48%, rgba(112, 190, 142, 0.42) 100%);
 }
 
 .hero-brand-slide > img {
