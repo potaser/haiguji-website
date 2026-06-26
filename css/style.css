@@ -10,7 +10,7 @@
     --primary-purple: #6a2c91;
     --secondary-blue: #2a5298;
     --accent-color: #00d4ff;
-    --hero-overlay-color: rgba(127, 255, 212, 0.58);
+    --hero-overlay-color: rgba(127, 255, 212, 0.32);
     --light-bg: #f5f7fa;
     --dark-text: #333;
     --light-text: #666;
@@ -132,12 +132,12 @@ body {
 }
 
 .hero-brand-heading h1 {
-    color: var(--primary-purple);
+    color: white;
     margin-bottom: 0;
 }
 
 .hero-brand-btn {
-    margin-top: 28px;
+    margin-top: 12px;
     margin-left: 214px;
 }
 
@@ -331,6 +331,7 @@ body {
     }
 
     .hero-brand-btn {
+        margin-top: 12px;
         margin-left: 148px;
     }
 
@@ -379,7 +380,7 @@ body {
     }
 
     .hero-brand-btn {
-        margin-top: 20px;
+        margin-top: 12px;
         margin-left: 108px;
     }
 
