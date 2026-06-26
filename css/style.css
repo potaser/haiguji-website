@@ -138,9 +138,11 @@ body {
 .hero-brand-heading h1 {
     color: white;
     margin-bottom: 0;
+    text-shadow: none;
 }
 
 .hero-brand-btn {
+    display: block;
     margin-top: 12px;
 }
 
