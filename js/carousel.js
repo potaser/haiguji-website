@@ -2,9 +2,29 @@ let currentSlideIndex = 1;
 let carouselTimer = null;
 let carouselPausedByUser = false;
 const carouselDelay = 9000;
+const pauseStorageKey = 'haigujiCarouselPaused';
 
-showSlides(currentSlideIndex);
-startCarousel();
+initCarousel();
+
+function initCarousel() {
+    const dots = document.querySelectorAll('.carousel-dot');
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            const targetSlide = Number(dot.dataset.slide);
+            if (!Number.isNaN(targetSlide)) {
+                currentSlide(targetSlide);
+            }
+        });
+    });
+
+    carouselPausedByUser = sessionStorage.getItem(pauseStorageKey) === 'true';
+    showSlides(currentSlideIndex);
+
+    if (!carouselPausedByUser) {
+        startCarousel();
+    }
+}
 
 function currentSlide(n) {
     currentSlideIndex = n;
@@ -53,14 +73,28 @@ function stopCarousel() {
 
 function pauseCarousel() {
     carouselPausedByUser = true;
+    sessionStorage.setItem(pauseStorageKey, 'true');
     stopCarousel();
 }
 
-document.addEventListener('visibilitychange', () => {
-    stopCarousel();
+window.addEventListener('pagehide', () => {
+    sessionStorage.removeItem(pauseStorageKey);
+});
 
-    if (!document.hidden) {
+window.addEventListener('pageshow', event => {
+    if (event.persisted) {
         carouselPausedByUser = false;
+        startCarousel();
+    }
+});
+
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        stopCarousel();
+        return;
+    }
+
+    if (!carouselPausedByUser) {
         startCarousel();
     }
 });
