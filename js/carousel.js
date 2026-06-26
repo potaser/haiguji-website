@@ -1,14 +1,24 @@
-// 轮播功能
 let currentSlideIndex = 1;
+let carouselTimer = null;
+let carouselPausedByUser = false;
+const carouselDelay = 9000;
+
 showSlides(currentSlideIndex);
+startCarousel();
 
 function currentSlide(n) {
-    showSlides(currentSlideIndex = n);
+    currentSlideIndex = n;
+    showSlides(currentSlideIndex);
+    pauseCarousel();
 }
 
 function showSlides(n) {
     const slides = document.querySelectorAll('.hero-slide');
     const dots = document.querySelectorAll('.carousel-dot');
+
+    if (!slides.length || !dots.length) {
+        return;
+    }
 
     if (n > slides.length) {
         currentSlideIndex = 1;
@@ -24,17 +34,33 @@ function showSlides(n) {
     dots[currentSlideIndex - 1].classList.add('active');
 }
 
-// 自动轮播
-setInterval(() => {
+function nextSlide() {
     currentSlideIndex++;
     showSlides(currentSlideIndex);
-}, 5000);
+}
 
-// 按钮点击事件
-document.querySelectorAll('.btn-primary').forEach(btn => {
-    btn.addEventListener('click', function() {
-        const targetId = this.textContent.includes('了解') ? '#products' : '#contact';
-        // 这里可以添加页面跳转逻辑
-        console.log('按钮被点击');
-    });
+function startCarousel() {
+    stopCarousel();
+    carouselTimer = setInterval(nextSlide, carouselDelay);
+}
+
+function stopCarousel() {
+    if (carouselTimer) {
+        clearInterval(carouselTimer);
+        carouselTimer = null;
+    }
+}
+
+function pauseCarousel() {
+    carouselPausedByUser = true;
+    stopCarousel();
+}
+
+document.addEventListener('visibilitychange', () => {
+    stopCarousel();
+
+    if (!document.hidden) {
+        carouselPausedByUser = false;
+        startCarousel();
+    }
 });

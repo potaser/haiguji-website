@@ -82,7 +82,7 @@ body {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(105deg, rgba(232, 238, 142, 0.62) 0%, rgba(188, 221, 126, 0.52) 48%, rgba(112, 190, 142, 0.42) 100%);
+    background: rgba(154, 205, 50, 0.58);
 }
 
 .hero-brand-slide > img {
@@ -113,6 +113,7 @@ body {
 .hero-brand-content {
     max-width: 920px;
     padding-left: 82px;
+    transform: translateY(24px);
 }
 
 .hero-brand-heading {
