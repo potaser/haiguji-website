@@ -123,6 +123,10 @@ body {
     gap: 34px;
 }
 
+.hero-brand-copy {
+    min-width: 0;
+}
+
 .hero-brand-logo {
     width: 180px;
     max-width: 32vw;
@@ -138,7 +142,6 @@ body {
 
 .hero-brand-btn {
     margin-top: 12px;
-    margin-left: 214px;
 }
 
 /* 按钮样式 */
@@ -332,7 +335,6 @@ body {
 
     .hero-brand-btn {
         margin-top: 12px;
-        margin-left: 148px;
     }
 
     .hero-content h1 {
@@ -381,7 +383,6 @@ body {
 
     .hero-brand-btn {
         margin-top: 12px;
-        margin-left: 108px;
     }
 
     .hero-content h1 {
