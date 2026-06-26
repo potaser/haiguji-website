@@ -74,6 +74,19 @@ body {
     height: 100%;
     object-fit: cover;
     opacity: 0.26;
+    z-index: 0;
+}
+
+.hero-brand-slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(105deg, rgba(70, 150, 205, 0.56) 0%, rgba(86, 128, 205, 0.44) 46%, rgba(115, 92, 175, 0.36) 100%);
+}
+
+.hero-brand-slide > img {
+    opacity: 0.18;
 }
 
 .hero-content {
@@ -98,11 +111,14 @@ body {
 }
 
 .hero-brand-content {
+    max-width: 920px;
+    padding-left: 82px;
+}
+
+.hero-brand-heading {
     display: flex;
     align-items: center;
     gap: 34px;
-    max-width: 920px;
-    padding-left: 82px;
 }
 
 .hero-brand-logo {
@@ -113,8 +129,13 @@ body {
     filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28));
 }
 
-.hero-brand-copy {
-    min-width: 0;
+.hero-brand-heading h1 {
+    margin-bottom: 0;
+}
+
+.hero-brand-btn {
+    margin-top: 28px;
+    margin-left: 214px;
 }
 
 /* 按钮样式 */
@@ -294,13 +315,20 @@ body {
 /* 响应式设计 */
 @media (max-width: 768px) {
     .hero-brand-content {
-        gap: 20px;
         padding-left: 32px;
         padding-right: 20px;
     }
 
+    .hero-brand-heading {
+        gap: 20px;
+    }
+
     .hero-brand-logo {
         width: 128px;
+    }
+
+    .hero-brand-btn {
+        margin-left: 148px;
     }
 
     .hero-content h1 {
@@ -336,12 +364,20 @@ body {
 
     .hero-brand-content {
         padding-left: 20px;
+    }
+
+    .hero-brand-heading {
         gap: 14px;
     }
 
     .hero-brand-logo {
         width: 94px;
         max-width: 28vw;
+    }
+
+    .hero-brand-btn {
+        margin-top: 20px;
+        margin-left: 108px;
     }
 
     .hero-content h1 {
