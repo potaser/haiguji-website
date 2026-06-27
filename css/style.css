@@ -60,6 +60,10 @@ body {
     animation: slideIn 0.5s ease-in;
 }
 
+.hero-brand-slide.active {
+    justify-content: center;
+}
+
 @keyframes slideIn {
     from {
         opacity: 0;
@@ -113,8 +117,8 @@ body {
 
 .hero-brand-content {
     max-width: 920px;
-    padding-left: 82px;
-    transform: translateY(24px);
+    padding: 0 20px;
+    margin: 0 auto;
 }
 
 .hero-brand-heading {
@@ -128,9 +132,8 @@ body {
 }
 
 .hero-brand-logo {
-    width: 180px;
-    max-width: 32vw;
-    height: auto;
+    height: 8.5rem;
+    width: auto;
     flex: 0 0 auto;
     filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28));
 }
@@ -139,6 +142,16 @@ body {
     color: white;
     margin-bottom: 0;
     text-shadow: none;
+}
+
+.hero-line-1,
+.hero-line-2 {
+    display: block;
+    line-height: 1.4;
+}
+
+.hero-line-2 {
+    margin-left: 5.5rem;
 }
 
 .hero-brand-btn {
@@ -322,17 +335,12 @@ body {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    .hero-brand-content {
-        padding-left: 32px;
-        padding-right: 20px;
-    }
-
     .hero-brand-heading {
         gap: 20px;
     }
 
     .hero-brand-logo {
-        width: 128px;
+        height: 6.8rem;
     }
 
     .hero-brand-btn {
@@ -370,17 +378,12 @@ body {
         padding-left: 20px;
     }
 
-    .hero-brand-content {
-        padding-left: 20px;
-    }
-
     .hero-brand-heading {
         gap: 14px;
     }
 
     .hero-brand-logo {
-        width: 94px;
-        max-width: 28vw;
+        height: 5rem;
     }
 
     .hero-brand-btn {
